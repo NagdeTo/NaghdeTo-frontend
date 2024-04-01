@@ -5,6 +5,7 @@ import { IoExitOutline } from "react-icons/io5";
 import { IoMdSearch } from "react-icons/io";
 import { RxAvatar } from "react-icons/rx";
 import Sidebar from "./Sidebar";
+import Typography from "antd/es/typography/Typography";
 
 const DashboardHeader = () => {
   const [scroll, setScroll] = useState(false);
@@ -46,19 +47,11 @@ const DashboardHeader = () => {
       onBack={() => {}}
       subTitle=" "
       extra={[
-        <Flex vertical={false}>
-          <IoMdSearch color="rgba(0, 0, 0, 0.65)" size={20} />
-          Search
+        <Flex vertical={false} className="gap-3 items-center">
+          <Typography className="text-placeHolder	 text-xl">Search</Typography>
+          <IoMdSearch color="rgba(0, 0, 0, 0.65)" size={30} />
         </Flex>,
-        // <Sidebar />,
       ]}
-      // avatar={{
-      //   src: logo,
-      //   style: {
-      //     width: "4.2rem",
-      //     height: "2.5rem",
-      //   },
-      // }}
     ></PageHeader>
   );
 };

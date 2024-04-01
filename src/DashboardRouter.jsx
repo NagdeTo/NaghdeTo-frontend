@@ -1,11 +1,19 @@
-import Header from "./components/Dashboard-layouts/Header";
-import Sidebar from "./components/Dashboard-layouts/Sidebar";
-import DashboardLayout from "./components/Dashboard-layouts/Layout";
 
+import DashboardLayout from "./components/Dashboard-layouts/Layout";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import {Routes, Route} from "react-router-dom"
 const DashboardRouter = () => {
   return (
     <>
-      <DashboardLayout />
+      {/* <DashboardLayout /> */}
+      <DashboardLayout>
+        
+      <Routes>
+        {/* صفحات دیگر را اضافه کنید */}
+        <Route path="dashboard" element={<Dashboard />} />
+      </Routes>
+      </DashboardLayout>
+      {/* <Dashboard /> */}
       {/* <Sidebar /> */}
     </>
   );
