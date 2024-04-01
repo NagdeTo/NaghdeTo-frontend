@@ -36,6 +36,7 @@ export default {
         },
         white: "#fff",
         grey: "#f8f9fa",
+        placeHolder: "rgba(0, 0, 0, 0.65)",
       },
       fontFamily: {
         iranSans: ["IRANSansX-Regular.ttf", "sans-serif"],
@@ -50,5 +51,6 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+  ],
 };
