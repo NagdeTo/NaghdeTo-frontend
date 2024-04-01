@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  important: true,
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
@@ -32,7 +33,7 @@ export default {
           700: "rgba(233, 245, 219, 0.7)",
           800: "rgba(233, 245, 219, 0.8)",
           900: "rgba(233, 245, 219, 0.9)",
-          1000: "rgba(233, 245, 219, 1)"
+          1000: "rgba(233, 245, 219, 1)",
         },
         white: "#fff",
         grey: "#f8f9fa",
@@ -51,6 +52,5 @@ export default {
       },
     },
   },
-  plugins: [
-  ],
+  plugins: [],
 };
