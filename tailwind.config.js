@@ -3,6 +3,12 @@ export default {
   important: true,
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    fontFamily: {
+      sans: ["IRANSansX-Regular.ttf", "sans-serif"],
+
+      iranSans: ["IRANSansX-Regular.ttf", "sans-serif"],
+      // serif: ["Merriweather", "serif"],
+    },
     extend: {
       screens: {
         sm: "480px",
@@ -39,10 +45,7 @@ export default {
         grey: "#f8f9fa",
         placeHolder: "rgba(0, 0, 0, 0.65)",
       },
-      fontFamily: {
-        iranSans: ["IRANSansX-Regular.ttf", "sans-serif"],
-        // serif: ["Merriweather", "serif"],
-      },
+     
       spacing: {
         128: "32rem",
         144: "36rem",

@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { FaHome } from "react-icons/fa";
-import { Button, Menu, Flex, Image } from "antd";
-import logo from "../../assets/images/logo.svg";
+import { AiOutlineHome } from "react-icons/ai";
+import { Menu, Flex, Typography } from "antd";
 
 const Sidebar = (props) => {
   const { collapsed, setCollapsed } = props;
   const items = [
     {
       key: 2,
-      icon: <FaHome />,
-      label: "خانه",
+      icon: <AiOutlineHome  size={25}/>,
+      label:<Typography className="text-lg font-medium	">خانه</Typography>,
+      style:{
+        backgroundColor:"primary[200]"
+      }
     },
   ];
   return (
-    <Flex style={{ width: collapsed ? "68px" : "200px" }}>
+    <Flex style={{ width: collapsed ? "68px" : "190px" }}>
       <Menu
         className="pt-5"
         direction="right"

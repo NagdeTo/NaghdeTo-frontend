@@ -3,9 +3,17 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
 import { ConfigProvider } from "antd";
+import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <ConfigProvider theme={{ hashed: false }}>
+  <BrowserRouter>
+
+  <ConfigProvider theme={{ hashed: false,token: {
+          fontFamily: "IRANSansX",
+          colorPrimary:"rgba(233, 245, 219, 1)",
+        } }}>
     <App />
-  </ConfigProvider>,
+  </ConfigProvider>
+  </BrowserRouter>
+  ,
 );
