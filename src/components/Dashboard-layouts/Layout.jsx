@@ -1,14 +1,17 @@
+
+
 import { Breadcrumb, Layout, Menu, Flex, Typography } from "antd";
 import DashboardHeader from "./Header";
 import Sidebar from "./Sidebar";
 import { useState } from "react";
 import logo from "../../assets/images/logo.svg";
-
+import "./Styles/Layout.css"
 const DashboardLayout = ({ children }) => {
   const { Header, Content, Footer, Sider } = Layout;
   const [collapsed, setCollapsed] = useState(true);
   return (
     <Layout
+    // trigger={null}
       className="bg-grey pl-5"
       style={{
         direction: "rtl",
@@ -16,13 +19,13 @@ const DashboardLayout = ({ children }) => {
       }}
     >
       <Sider
-        className={`h-screen bg-grey pr-2 pt-1 ml-5 ${!collapsed && "shadow-md"}`}
+        className={`h-screen bg-grey ${!collapsed && "shadow-md"}`}
         collapsed={collapsed}
         onMouseOver={() => setCollapsed(false)}
         onMouseOut={() => setCollapsed(true)}
       >
         <Flex
-          className={`w-[full] items-center bg-grey ${collapsed ? "justify-center pr-5" : "justify-start pr-2 gap-1"}  pt-2`}
+          className={`w-[full] items-center bg-grey ${collapsed ? "justify-center" : "justify-start  gap-1"}  pt-4`}
           vertical={false} 
         >
           <img src={logo} />
@@ -30,7 +33,7 @@ const DashboardLayout = ({ children }) => {
         </Flex>
         <Sidebar
         
-          className=" bg-grey"
+          className="pt-2"
           collapsed={collapsed}
           setCollapsed={(v) => setCollapsed(v)}
         />
