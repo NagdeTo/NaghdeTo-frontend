@@ -7,13 +7,18 @@ import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
-
-  <ConfigProvider theme={{ hashed: false,token: {
+    <ConfigProvider
+      theme={{
+        hashed: false,
+        token: {
           fontFamily: "IRANSansX",
-          colorPrimary:"rgba(233, 245, 219, 1)",
-        } }}>
-    <App />
-  </ConfigProvider>
-  </BrowserRouter>
-  ,
+          colorPrimary: "rgba(88, 129, 87, 0.9)",
+          // darkItemSelectedBg: "rgba(233, 245, 219, 1)",
+          colorBgContainer: "#f8f9fa",
+        },
+      }}
+    >
+      <App />
+    </ConfigProvider>
+  </BrowserRouter>,
 );

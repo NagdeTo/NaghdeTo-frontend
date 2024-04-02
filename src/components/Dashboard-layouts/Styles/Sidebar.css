@@ -1,0 +1,10 @@
+.ant-menu-light .ant-menu-item-selected{
+  /* padding-right: 0px; */
+  /* display: flex;
+    align-items: center */
+    padding-top: 0.25rem;
+    /* padding-right: rem; */
+  }
+  .ant-menu-light.ant-menu-root.ant-menu-inline, .ant-menu-light>.ant-menu.ant-menu-root.ant-menu-inline, .ant-menu-light.ant-menu-root.ant-menu-vertical, .ant-menu-light>.ant-menu.ant-menu-root.ant-menu-vertical{
+  border:0
+}
