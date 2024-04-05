@@ -8,6 +8,7 @@ export default function Test() {
     <Flex
       className="py-24"
       align="center"
+      gap="20px"
       vertical
       style={{ backgroundImage: `url(${bg})`, backgroundColor: "#f8f9fc " }}
     >

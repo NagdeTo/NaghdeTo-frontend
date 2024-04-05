@@ -3,6 +3,9 @@ import HeroSection from "./components/Public-layouts/HeroSection";
 import bg from "./assets/images/shape2.png";
 import WhatIs from "./components/Public-layouts/WhatIs";
 import Test from "./components/Public-layouts/Test";
+import Clients from "./components/Public-layouts/Clients";
+import { Divider } from "antd";
+import Statistics from "./components/Public-layouts/Statistics";
 
 const PublicRouter = () => {
   return (
@@ -15,6 +18,9 @@ const PublicRouter = () => {
       </div>
       <WhatIs />
       <Test />
+      <Clients />
+      <Divider className="bg-gray-200" />
+      <Statistics />
       {/* <div
         style={{
           zIndex: "-1",
