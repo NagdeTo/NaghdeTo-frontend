@@ -2,16 +2,19 @@ import Header from "./components/Public-layouts/Header";
 import HeroSection from "./components/Public-layouts/HeroSection";
 import bg from "./assets/images/shape2.png";
 import WhatIs from "./components/Public-layouts/WhatIs";
-import { Collapse } from "antd";
+import Test from "./components/Public-layouts/Test";
 
 const PublicRouter = () => {
   return (
     <>
-      <div style={{ backgroundImage: `url(${bg})` }}>
+      <div
+        style={{ backgroundImage: `url(${bg})`, backgroundColor: "#f8f9fc " }}
+      >
         <Header />
         <HeroSection />
       </div>
       <WhatIs />
+      <Test />
       {/* <div
         style={{
           zIndex: "-1",
