@@ -6,6 +6,7 @@ import Test from "./components/Public-layouts/Test";
 import Clients from "./components/Public-layouts/Clients";
 import { Divider } from "antd";
 import Statistics from "./components/Public-layouts/Statistics";
+import ShareWays from "./components/Public-layouts/ShareWays";
 
 const PublicRouter = () => {
   return (
@@ -21,6 +22,7 @@ const PublicRouter = () => {
       <Clients />
       <Divider className="bg-gray-200" />
       <Statistics />
+      <ShareWays />
       {/* <div
         style={{
           zIndex: "-1",
