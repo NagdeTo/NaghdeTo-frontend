@@ -1,0 +1,13 @@
+.active-link {
+  background-color: rgb(88, 129, 87);
+  border-radius: 8px;
+  color: #fff;
+}
+
+.active-link:hover {
+  color: #fff;
+}
+
+a:hover {
+  color: black;
+}
