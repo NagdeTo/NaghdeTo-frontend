@@ -26,7 +26,6 @@ const NumericInput = (props) => {
       onChange={handleChange}
       onBlur={handleBlur}
       maxLength={25}
-      placeholder="Input a number"
     />
   );
 };

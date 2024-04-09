@@ -19,8 +19,8 @@ const Sidebar = (props) => {
         // direction="right"
         defaultSelectedKeys={["1"]}
         defaultOpenKeys={["sub1"]}
-        mode="inline"
-        inlineCollapsed={collapsed}
+        // mode="inline"
+        // collapsed={collapsed}
         items={items}
       >
       </Menu>

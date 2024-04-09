@@ -19,7 +19,7 @@ const DashboardHeader = () => {
   // );
   const items = [
     {
-      key: "1",
+      key: 1,
       danger: true,
       label: "Log Out",
       icon: <IoExitOutline size={20} />,
@@ -47,7 +47,7 @@ const DashboardHeader = () => {
       onBack={() => {}}
       subTitle=" "
       extra={[
-        <Flex vertical={false} className="gap-3 items-center">
+        <Flex key={1} vertical={false} className="gap-3 items-center">
           <Typography className="text-placeHolder	 text-xl">Search</Typography>
           <IoMdSearch color="rgba(0, 0, 0, 0.65)" size={30} />
         </Flex>,

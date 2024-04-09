@@ -1,16 +1,46 @@
-import React, { useState } from "react";
-import { Flex, Typography, Button, Checkbox, Form, Input } from "antd";
+import React, { useState, useEffect } from "react";
+import {
+  Flex,
+  Typography,
+  Button,
+  Checkbox,
+  Form,
+  Input,
+  Modal,
+  Spin,
+} from "antd";
 import JalaliDatePicker from "../../components/Pickers/JalaliDatePicker";
 import NumericInput from "../../components/Inputs/NumericInput";
+import { CheckCircleOutlined, CloseCircleOutlined } from "@ant-design/icons";
 const { TextArea } = Input;
 
-const AddCriticism = () => {
+const AddCriticism = (props) => {
   const [respondentsNumber, setRespondentsNumber] = useState(0);
+  const [subject, setSubject] = useState();
+  const [description, setDescription] = useState();
+  const [date, setDate] = useState();
+  const [audio, setAudio] = useState(true);
+  const [text, setText] = useState(true);
+  const [modalOpen, setModalOpen] = useState(true);
+  const [confirmLoading, setConfirmLoading] = useState(false);
+  const [success, setSuccess] = useState();
 
+  useEffect(() => {
+    console.log(date);
+  }, [date]);
+
+  const handleOk = () => {
+    setConfirmLoading(true);
+    setTimeout(() => {
+      setModalOpen(true);
+      setSuccess(false);
+      setConfirmLoading(false);
+    }, 2000);
+  };
   return (
-    <Flex className=" w-[50%] mt-10 flex min-h-10 flex-col items-start  justify-center rounded-xl bg-white px-5 py-10 shadow-lg">
+    <Flex className=" mt-10 flex min-h-10 flex-col items-start justify-center  rounded-xl bg-white px-5 py-10 shadow-lg md:w-[50%]">
       <Typography className="pb-5	text-2xl font-extrabold">نقد جدید</Typography>
-    
+
       <Form
         name="basic"
         // labelCol={{
@@ -32,6 +62,8 @@ const AddCriticism = () => {
       >
         <Form.Item
           label="موضوع: "
+          value={subject}
+          onChange={(e) => setSubject(e.target.value)}
           name="subject"
           rules={[{ required: true, message: "موضوع نقد خود را وارد نمایید." }]}
         >
@@ -39,6 +71,8 @@ const AddCriticism = () => {
         </Form.Item>
         <Form.Item
           label="توضیحات:"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
           name="description"
           rules={[
             {
@@ -59,7 +93,7 @@ const AddCriticism = () => {
             },
           ]}
         >
-          <JalaliDatePicker />
+          <JalaliDatePicker setValue={setDate} />
         </Form.Item>
         <Form.Item
           label="تعداد پاسخ دهندگان"
@@ -78,15 +112,14 @@ const AddCriticism = () => {
         </Form.Item>
         <Form.Item
           label="نحوه پاسخ‌دهی"
-          name="remember"
           valuePropName="checked"
           wrapperCol={{
             offset: 1,
             span: 16,
           }}
         >
-          <Checkbox> صوتی</Checkbox>
-          <Checkbox> متنی</Checkbox>
+          <Checkbox onChange={() => setAudio(!audio)}> صوتی</Checkbox>
+          <Checkbox onChange={() => setText(!text)}> متنی</Checkbox>
         </Form.Item>
         <Form.Item
           wrapperCol={{
@@ -94,9 +127,44 @@ const AddCriticism = () => {
             span: 16,
           }}
         >
-          <Button type="primary" htmlType="submit">
+          <Button
+            icon={confirmLoading && <Spin size="small" />}
+            onClick={handleOk}
+            type="primary"
+            htmlType="submit"
+          >
             ثبت
           </Button>
+          <Modal
+            className="text-center"
+            open={modalOpen}
+            onCancel={() => setModalOpen(false)}
+            footer={[
+              <Flex key={1} className="justify-center pt-5">
+                {success ? (
+                  <Button key="ok" type="primary">
+                    Ok
+                  </Button>
+                ) : (
+                  <Button key="cancel" danger>
+                    Cancel
+                  </Button>
+                )}
+              </Flex>,
+            ]}
+          >
+            {success ? (
+              <CheckCircleOutlined
+                size={50}
+                className="text-5xl text-primary-1000"
+              />
+            ) : (
+              <CloseCircleOutlined
+                size={50}
+                className="text-5xl text-red-500"
+              />
+            )}
+          </Modal>
         </Form.Item>
       </Form>
     </Flex>
