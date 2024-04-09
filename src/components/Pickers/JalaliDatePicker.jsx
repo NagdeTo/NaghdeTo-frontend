@@ -3,6 +3,7 @@ import { DatePicker } from "antd";
 import dayjs from "dayjs";
 import fa_IR from "antd/lib/locale/fa_IR";
 import jalaliday from "jalaliday";
+import {SwapLeftOutlined} from "@ant-design/icons"
 dayjs.extend(jalaliday);
 
 const JalaliDatePicker = () => {
@@ -13,6 +14,8 @@ const JalaliDatePicker = () => {
     .locale("fa");
   return (
     <DatePicker.RangePicker
+    separator={<SwapLeftOutlined />
+  }
       placeholder={["شروع", "پایان"]}
       defaultValue={jalaliDate}
       locale={locale}

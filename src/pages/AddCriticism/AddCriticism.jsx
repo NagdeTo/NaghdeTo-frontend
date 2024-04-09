@@ -8,11 +8,9 @@ const AddCriticism = () => {
   const [respondentsNumber, setRespondentsNumber] = useState(0);
 
   return (
-    <Flex className=" mt-10 flex min-h-10 flex-col items-start  justify-center rounded-xl bg-white px-5 py-10 shadow-lg">
+    <Flex className=" w-[50%] mt-10 flex min-h-10 flex-col items-start  justify-center rounded-xl bg-white px-5 py-10 shadow-lg">
       <Typography className="pb-5	text-2xl font-extrabold">نقد جدید</Typography>
-      {/* <Flex className="w-full flex-row items-center justify-start gap-2">
-        <Typography>موضوع: </Typography>
-      </Flex> */}
+    
       <Form
         name="basic"
         // labelCol={{
