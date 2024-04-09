@@ -10,9 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.3.6",
     "@ant-design/pro-components": "^2.7.0",
     "@react-icons/all-files": "^4.1.0",
     "antd": "^5.16.0",
+    "dayjs": "^1.11.10",
+    "jalaali-js": "^1.2.6",
+    "jalaliday": "^2.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
