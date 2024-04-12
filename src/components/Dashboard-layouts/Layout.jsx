@@ -29,7 +29,7 @@ const DashboardLayout = ({ children }) => {
           vertical={false} 
         >
           <img src={logo} />
-          {!collapsed && <Typography className="text-xl font-bold">نقدیتو</Typography>}
+          {!collapsed && <Typography className="text-xl font-bold">نقدتو</Typography>}
         </Flex>
         <Sidebar
         

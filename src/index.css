@@ -23,3 +23,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.ant-spin-dot-item {
+  background-color: white !important;
+}
+.ant-table-wrapper .ant-table-pagination.ant-pagination{
+  direction: ltr;
+  justify-content: center;
+  }
