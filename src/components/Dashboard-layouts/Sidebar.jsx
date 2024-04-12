@@ -8,7 +8,11 @@ const Sidebar = (props) => {
     {
       key: 1,
       icon: <Flex className="w-[50px] flex justify-cenetr pl-1"><AiOutlineHome  size={25}/></Flex>,
-      label:<Typography className="text-lg font-medium	">خانه</Typography>,
+      label:
+      <Typography className="text-lg font-medium"
+      >
+        خانه
+        </Typography>,
       
     },
   ];
@@ -19,7 +23,7 @@ const Sidebar = (props) => {
         // direction="right"
         defaultSelectedKeys={["1"]}
         defaultOpenKeys={["sub1"]}
-        // mode="inline"
+        mode="inline"
         // collapsed={collapsed}
         items={items}
       >

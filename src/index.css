@@ -26,3 +26,7 @@ code {
 .ant-spin-dot-item {
   background-color: white !important;
 }
+.ant-table-wrapper .ant-table-pagination.ant-pagination{
+  direction: ltr;
+  justify-content: center;
+  }
