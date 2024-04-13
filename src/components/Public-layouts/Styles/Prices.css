@@ -38,11 +38,11 @@
 .ribbon::after {
   content: "";
   position: absolute;
-  bottom: 55px;
+  bottom: 56px;
   left: 0;
   width: 10px;
   height: 10px;
   background-color: rgba(255, 68, 0, 0.692);
   z-index: -1;
-  box-shadow: 84px -84px rgba(255, 68, 0, 0.692);
+  box-shadow: 84px -85px rgba(255, 68, 0, 0.692);
 }

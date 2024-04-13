@@ -9,6 +9,7 @@ import Statistics from "./components/Public-layouts/Statistics";
 import ShareWays from "./components/Public-layouts/ShareWays";
 import ClientComments from "./components/Public-layouts/ClientComments";
 import Prices from "./components/Public-layouts/Prices";
+import Footer from "./components/Public-layouts/Footer";
 
 const PublicRouter = () => {
   return (
@@ -27,6 +28,7 @@ const PublicRouter = () => {
       <ShareWays />
       <ClientComments />
       <Prices />
+      <Footer />
       {/* <div
         style={{
           zIndex: "-1",
