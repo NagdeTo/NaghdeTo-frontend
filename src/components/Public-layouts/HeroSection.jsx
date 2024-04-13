@@ -1,4 +1,4 @@
-import { Button, Flex, Typography } from "antd";
+import { Flex, Typography } from "antd";
 import React from "react";
 import freelancer from "../../assets/images/freelancer.png";
 import StyledButton from "../Public-StyledComponents/Buttons/StyledButton";

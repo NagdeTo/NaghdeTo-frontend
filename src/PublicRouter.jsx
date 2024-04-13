@@ -7,6 +7,8 @@ import Clients from "./components/Public-layouts/Clients";
 import { Divider } from "antd";
 import Statistics from "./components/Public-layouts/Statistics";
 import ShareWays from "./components/Public-layouts/ShareWays";
+import ClientComments from "./components/Public-layouts/ClientComments";
+import Prices from "./components/Public-layouts/Prices";
 
 const PublicRouter = () => {
   return (
@@ -23,6 +25,8 @@ const PublicRouter = () => {
       <Divider className="bg-gray-200" />
       <Statistics />
       <ShareWays />
+      <ClientComments />
+      <Prices />
       {/* <div
         style={{
           zIndex: "-1",
