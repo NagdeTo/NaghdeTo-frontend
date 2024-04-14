@@ -19,7 +19,7 @@ export default function Footer() {
       style={{ direction: "rtl" }}
     >
       {/* 1 */}
-      <Flex gap="20px" align="center gap-2 text-[#6c757d]" vertical>
+      <Flex gap="20px" align="center" className="text-[#6c757d]" vertical>
         <img src={logo} className="w-32" />
         <Typography.Text className="text-lg text-[#6c757d]">
           با نقدتو ناشناس انتقاد کن.
@@ -100,12 +100,12 @@ export default function Footer() {
         </Link>
       </Flex>
       {/* 4 */}
-      <Flex vertical align="flex-start" gap="20px">
+      <Flex vertical align="flex-start">
         <Typography.Title level={4}>خبرنامه</Typography.Title>
-        <Typography.Text className="max-w-52 text-lg text-[#6c757d]">
+        <Typography.Text className="max-w-56 text-[16px] text-[#6c757d]">
           ثبت‌نام کنید و آخرین اخبار نقدتو را از طریق ایمیل دریافت کنید.
         </Typography.Text>
-        <Form className="flex flex-col gap-6">
+        <Form className="mt-2 flex flex-col gap-6">
           <Form.Item
             label="ایمیل خود را بنویسید"
             rules={[

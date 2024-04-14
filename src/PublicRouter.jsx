@@ -4,47 +4,60 @@ import bg from "./assets/images/shape2.png";
 import WhatIs from "./components/Public-layouts/WhatIs";
 import Test from "./components/Public-layouts/Test";
 import Clients from "./components/Public-layouts/Clients";
-import { Divider } from "antd";
+import { Divider, Flex } from "antd";
 import Statistics from "./components/Public-layouts/Statistics";
 import ShareWays from "./components/Public-layouts/ShareWays";
 import ClientComments from "./components/Public-layouts/ClientComments";
 import Prices from "./components/Public-layouts/Prices";
 import Footer from "./components/Public-layouts/Footer";
+import Decorative from "./components/Public-layouts/Decorative";
+import GoToTop from "./components/Public-layouts/GoToTop";
+import { useState, useEffect } from "react";
 
 const PublicRouter = () => {
+  const [showGoToTop, setShowGoToTop] = useState(false);
+
+  function handleScrollToTop() {
+    const heroSectionHeight =
+      document.getElementById("hero-section").offsetHeight;
+    if (window.scrollY > heroSectionHeight) {
+      setShowGoToTop(true);
+    } else {
+      setShowGoToTop(false);
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScrollToTop);
+    return () => {
+      window.removeEventListener("scroll", handleScrollToTop);
+    };
+  }, []);
+
   return (
     <>
-      <div
-        style={{ backgroundImage: `url(${bg})`, backgroundColor: "#f8f9fc " }}
+      <Flex
+        vertical
+        style={{
+          backgroundImage: `url(${bg})`,
+          position: "relative",
+          overflow: "hidden",
+        }}
       >
         <Header />
         <HeroSection />
-      </div>
+        <Decorative />
+      </Flex>
       <WhatIs />
       <Test />
       <Clients />
       <Divider className="bg-gray-200" />
       <Statistics />
       <ShareWays />
-      <ClientComments />
+      {/* <ClientComments /> */}
       <Prices />
       <Footer />
-      {/* <div
-        style={{
-          zIndex: "-1",
-          backgroundColor: "pink",
-          width: "100rem",
-          height: "70rem",
-          borderRadius: "6rem",
-          position: "absolute",
-          right: "7rem",
-          bottom: "0rem",
-          opacity: "0.7",
-          transform: "rotate(-130deg)",
-          boxShadow: "0 0 40px gray",
-          left: "-70rem",
-        }}
-      ></div> */}
+      {showGoToTop && <GoToTop />}
     </>
   );
 };

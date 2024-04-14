@@ -1,13 +1,19 @@
 import { Collapse, Flex, Typography, theme } from "antd";
 import React from "react";
-import faq from "../../assets/images/faq.svg";
+import voiceAssistantBro from "../../assets/images/Voice assistant-bro.png";
 import CollapsePanel from "antd/es/collapse/CollapsePanel";
 import "../Public-layouts/Styles/WhatIs.css";
 
 export default function WhatIs() {
   return (
-    <Flex justify="center" align="center" gap="100px" className="py-24">
-      <img src={faq} className="w-1/3" />
+    <Flex
+      justify="center"
+      align="center"
+      gap="100px"
+      className="py-24"
+      id="what-is"
+    >
+      <img src={voiceAssistantBro} className="w-1/3" />
       <Collapse
         accordion
         defaultActiveKey={0}

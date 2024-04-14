@@ -24,6 +24,7 @@ export default function Prices() {
       vertical
       style={{ direction: "rtl" }}
       gap="50px"
+      id="prices"
     >
       <Typography.Title level={3} className="mb-0">
         قیمت‌هامون

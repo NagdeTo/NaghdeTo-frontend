@@ -1,9 +1,19 @@
 import logo from "../../assets/images/logo.svg";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Flex, Typography } from "antd";
 import StyledButton from "../Public-StyledComponents/Buttons/StyledButton";
+import "../Public-layouts/Styles/Header.css";
 
 export default function Header() {
+  const scrollToElement = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const location = useLocation();
+
   return (
     <Flex
       style={{
@@ -24,19 +34,36 @@ export default function Header() {
         gap="56px"
         className="text-sm font-semibold"
       >
-        <Link to="/" className="hover:text-primary-700">
+        <Link
+          to="/"
+          className={`${location.pathname === "/" ? "active-link-header" : ""} hover:text-primary-700`}
+        >
           خانه
         </Link>
-        <Link to="/" className="hover:text-primary-700">
+        <Link
+          to="#what-is"
+          className="hover:text-primary-700"
+          onClick={() => scrollToElement("what-is")}
+        >
           نقدتو چیه؟
         </Link>
-        <Link to="/" className="hover:text-primary-700">
+        <Link
+          to="#prices"
+          className="hover:text-primary-700"
+          onClick={() => scrollToElement("prices")}
+        >
           قیمتامون چنده؟
         </Link>
-        <Link to="/" className="hover:text-primary-700">
+        <Link
+          to="/about-us"
+          className={`${location.pathname === "/about-us" ? "active-link-header" : ""} hover:text-primary-700`}
+        >
           ما کی هستیم؟
         </Link>
-        <Link to="/" className="hover:text-primary-700">
+        <Link
+          to="/contact-us"
+          className={`${location.pathname === "/contact-us" ? "active-link-header" : ""} hover:text-primary-700`}
+        >
           با ما در ارتباط باش
         </Link>
       </Flex>

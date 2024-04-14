@@ -25,7 +25,7 @@ export default function ShareWays() {
   }
 
   return (
-    <Flex className="pb-24" vertical>
+    <Flex vertical>
       <Typography.Title level={3} className="px-24 text-right">
         روش‌های به اشتراک‌گذاری نقد
       </Typography.Title>
