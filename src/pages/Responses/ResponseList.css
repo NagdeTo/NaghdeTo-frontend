@@ -6,4 +6,5 @@ audio::-webkit-media-controls-play-button{
 audio::-webkit-media-controls-panel {
   background-color: rgba(88, 129, 87, 0.15);
   color: rgba(88, 129, 87, 0.1);
+  
 }
