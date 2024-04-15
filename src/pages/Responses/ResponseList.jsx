@@ -1,7 +1,7 @@
 import { Button, Space, Table, Flex  } from "antd";
 import audioc from "../../assets/audio (4).webm";
-import useSound from "use-sound";
-import { useEffect } from "react";
+import ChatBubble from "../../components/Chat/ChatBubble"
+
 import ReactAudioPlayer from "react-audio-player";
 import "./ResponseList.css"
 const ResponseList = () => {
@@ -32,22 +32,22 @@ const ResponseList = () => {
   const data = [
     {
       key: 1,
-      name: "فاطمه عیادی",
-      date: "۱۴۰۳ / ۰۱ / ۲۴",
+      name: "فاطمه عبادی",
+      date: "۱۴۰۳/۰۱/۲۴",
       time: "۱۲:۴۵",
       content: <ReactAudioPlayer  src={audioc} autoPlay controls />,
     },
     {
       key: 2,
       name: "حانیه موحدیان",
-      date: "۱۴۰۳ / ۰۱ / ۲۴",
+      date: "۱۴۰۳/۰۱/۲۴",
       time: "۱۲:۴۵",
-      content: "متن تست",
+      content: <ChatBubble message="متن تست" maxWidth="max-w-[300px]" />,
     },
     {
       key: 3,
-      name: "فاطمه عیادی",
-      date: "۱۴۰۳ / ۰۱ / ۲۴",
+      name: "فاطمه عبادی",
+      date: "۱۴۰۳/۰۱/۲۴",
       time: "۱۲:۴۵",
       content: <ReactAudioPlayer  src={audioc} autoPlay controls />,
     },
@@ -56,7 +56,7 @@ const ResponseList = () => {
   return (
     <Flex className=" mt-10 flex  min-h-10 items-center justify-center rounded-xl bg-white px-5 py-10 shadow-lg">
       <Table
-        className="h-full w-full"
+        className="h-full w-full "
         // style={{ direction: "ltr" }}
         columns={columns}
         dataSource={data}

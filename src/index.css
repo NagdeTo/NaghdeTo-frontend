@@ -30,3 +30,6 @@ code {
   direction: ltr;
   justify-content: center;
   }
+  .ant-table-cell-row-hover {
+    background-color: transparent !important;
+  }
