@@ -36,6 +36,7 @@ const PublicRouter = () => {
 
   return (
     <>
+      <Header />
       <Flex
         vertical
         style={{
@@ -44,7 +45,6 @@ const PublicRouter = () => {
           overflow: "hidden",
         }}
       >
-        <Header />
         <HeroSection />
         <Decorative />
       </Flex>

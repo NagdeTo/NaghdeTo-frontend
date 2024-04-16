@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Flex, Typography } from "antd";
 import StyledButton from "../Public-StyledComponents/Buttons/StyledButton";
 import "../Public-layouts/Styles/Header.css";
+import { useEffect } from "react";
 
 export default function Header() {
   const scrollToElement = (id) => {
@@ -14,6 +15,25 @@ export default function Header() {
 
   const location = useLocation();
 
+  //sticky navbar
+  function windowScroll() {
+    const navbar = document.getElementById("header");
+    if (navbar != null) {
+      if (window.scrollY >= 50) {
+        navbar.classList.add("sticky");
+      } else {
+        navbar.classList.remove("sticky");
+      }
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", windowScroll);
+    return () => {
+      window.removeEventListener("scroll", windowScroll);
+    };
+  }, []);
+
   return (
     <Flex
       style={{
@@ -22,7 +42,9 @@ export default function Header() {
       component="header"
       justify="space-between"
       align="center"
-      className="px-24 py-4"
+      className="fixed left-0 right-0 top-0 z-[9] h-20 px-24 
+      py-4 transition-all duration-500 ease-in"
+      id="header"
     >
       <Flex align="center">
         <img src={logo} className=" w-28" />

@@ -3,20 +3,9 @@ import React from "react";
 export default function Decorative() {
   return (
     <div
-      style={{
-        zIndex: "-1",
-        backgroundColor: "rgb(88,129,87,0.6)",
-        width: "110rem",
-        height: "70rem",
-        borderRadius: "6rem",
-        position: "absolute",
-        right: "7rem",
-        bottom: "0rem",
-        opacity: "0.7",
-        transform: "rotate(-130deg)",
-        boxShadow: "0 0 40px gray",
-        left: "-72rem",
-      }}
+      className="absolute bottom-[0rem] left-[-72rem] right-[7rem] z-[-1] 
+      h-[70rem] w-[102rem] rotate-[-130deg] rounded-[6rem]
+      bg-primary-600 opacity-[0.7] shadow-[0px_0px_40px_gray]"
     ></div>
   );
 }

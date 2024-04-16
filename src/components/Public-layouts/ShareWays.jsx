@@ -1,25 +1,30 @@
 import { Flex, Typography, Row, Col } from "antd";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import proposal from "../../assets/images/proposals.png";
 import "../Public-layouts/Styles/ShareWays.css";
 import { FaAngleLeft } from "react-icons/fa6";
 import { CgWebsite } from "react-icons/cg";
 import { HiOutlineMail } from "react-icons/hi";
 import { FiMessageSquare } from "react-icons/fi";
 import { AiOutlineApi } from "react-icons/ai";
+import website from "../../assets/images/Dropdown menu-amico.png";
+import email from "../../assets/images/Newsletter-bro.png";
+import message from "../../assets/images/Chat-rafiki.png";
+import api from "../../assets/images/Version control-bro.png";
 
 export default function ShareWays() {
   const [content, setContent] = useState({
     title: "وب‌سایت",
     desc: "در انتهای ساخت نقد، به شما یک لینک داده میشه که می‌تونید اونو با بقیه به اشتراک بذارین و هرکس روی لینک کلیک کنه، می‌تونه به اون نقد پاسخ بده.",
+    src: website,
   });
   const [activeLink, setActiveLink] = useState("وب‌سایت");
 
-  function handleLinkClick(title, desc) {
+  function handleLinkClick(title, desc, src) {
     setContent({
       title,
       desc,
+      src,
     });
     setActiveLink(title);
   }
@@ -50,6 +55,7 @@ export default function ShareWays() {
                   handleLinkClick(
                     "وب‌سایت",
                     "در انتهای ساخت نقد، به شما یک لینک داده میشه که می‌تونید اونو با بقیه به اشتراک بذارین و هرکس روی لینک کلیک کنه، می‌تونه به اون نقد پاسخ بده.",
+                    website,
                   )
                 }
               >
@@ -67,6 +73,7 @@ export default function ShareWays() {
                   handleLinkClick(
                     "ایمیل",
                     "می‌تونید ایمیل افرادی که می‌خواید به نقد پاسخ بدن رو در سامانه تعریف کنین تا لینک براشون ایمیل بشه.",
+                    email,
                   )
                 }
               >
@@ -84,6 +91,7 @@ export default function ShareWays() {
                   handleLinkClick(
                     "پیامک",
                     "می‌تونید شماره تلفن افرادی که میخواید به نقد پاسخ بدن رو در سامانه تعریف کنین تا لینک براشون پیامک بشه.",
+                    message,
                   )
                 }
               >
@@ -101,6 +109,7 @@ export default function ShareWays() {
                   handleLinkClick(
                     "API",
                     "ما بهتون API می‌دیم تا بتونید از اون توی وب‌سایت یا اپ خودتون استفاده کنید.",
+                    api,
                   )
                 }
               >
@@ -126,7 +135,7 @@ export default function ShareWays() {
             {content.desc}
           </Typography.Text>
 
-          <img src={proposal} />
+          <img src={content.src} />
         </Flex>
       </Flex>
     </Flex>
