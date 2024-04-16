@@ -1,18 +1,28 @@
 import { Collapse, Flex, Typography, theme } from "antd";
 import React from "react";
-import faq from "../../assets/images/faq.svg";
+import voiceAssistantPana from "../../assets/images/Voice assistant-pana.png";
 import CollapsePanel from "antd/es/collapse/CollapsePanel";
 import "../Public-layouts/Styles/WhatIs.css";
+import { MdArrowBackIosNew } from "react-icons/md";
 
 export default function WhatIs() {
   return (
-    <Flex justify="center" align="center" gap="100px" className="py-24">
-      <img src={faq} className="w-1/3" />
+    <Flex
+      justify="center"
+      align="center"
+      gap="100px"
+      className="py-24"
+      id="what-is"
+    >
+      <img src={voiceAssistantPana} className="w-1/3" />
       <Collapse
         accordion
         defaultActiveKey={0}
         className="h-full w-2/5 "
         style={{ direction: "rtl" }}
+        expandIcon={({ isActive }) => (
+          <MdArrowBackIosNew className={`${isActive && "rotate-[270deg]"} `} />
+        )}
       >
         <CollapsePanel header="نقدتو چیه؟">
           <Typography.Text className="text-base text-[#6c757d]">

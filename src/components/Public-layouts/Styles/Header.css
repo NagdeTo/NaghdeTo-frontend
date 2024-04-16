@@ -1,0 +1,8 @@
+.active-link-header {
+  color: rgb(88, 129, 87);
+}
+
+#header.sticky {
+  background-color: white;
+  box-shadow: 0 0 3px rgba(60, 72, 88, 0.15);
+}

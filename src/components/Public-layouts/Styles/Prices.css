@@ -1,0 +1,48 @@
+.active-link-prices {
+  border-radius: 32px;
+  background-color: rgba(88, 129, 87, 1);
+  color: white;
+}
+
+.active-link-prices:hover {
+  color: white;
+}
+
+/* Price Cards*/
+.ribbon {
+  position: absolute;
+  top: -10px;
+  left: -11px;
+  width: 105px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.ribbon::before {
+  content: attr(data-content);
+  position: absolute;
+  width: 150%;
+  height: 20px;
+  background-color: orangered;
+  transform: rotate(-45deg) translateY(-20px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 46px;
+  color: white;
+  font-size: 16px;
+}
+
+.ribbon::after {
+  content: "";
+  position: absolute;
+  bottom: 56px;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255, 68, 0, 0.692);
+  z-index: -1;
+  box-shadow: 84px -85px rgba(255, 68, 0, 0.692);
+}
