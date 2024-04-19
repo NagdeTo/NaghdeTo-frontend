@@ -53,7 +53,7 @@ const DashboardLayout = ({ children }) => {
           className={`w-[full] items-center bg-grey ${collapsed ? "justify-center" : "justify-start  gap-1"}  pt-4`}
           vertical={false}
         >
-          <img src={logo} />
+          <img src={logo} width={collapsed ? 400 : 100}/>
           {!collapsed && (
             <Typography className="text-xl font-bold">نقدتو</Typography>
           )}
