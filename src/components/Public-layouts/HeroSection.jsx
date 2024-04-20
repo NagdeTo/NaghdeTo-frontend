@@ -5,7 +5,12 @@ import StyledButton from "../Public-StyledComponents/Buttons/StyledButton";
 
 export default function HeroSection() {
   return (
-    <Flex className="relative pt-10" justify="space-around" id="hero-section">
+    <Flex
+      className="relative pt-[9.5rem]"
+      justify="center"
+      gap="20px"
+      id="hero-section"
+    >
       <img src={voiceAssistant} className="freelancer w-2/5" />
       <Flex
         vertical={true}
