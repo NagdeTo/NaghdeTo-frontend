@@ -1,0 +1,8 @@
+.team-member:hover img {
+  opacity: 0.2;
+  cursor: pointer;
+}
+
+.team-member:hover .socials {
+  opacity: 1 !important;
+}

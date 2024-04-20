@@ -42,8 +42,8 @@ export default function Header() {
       component="header"
       justify="space-between"
       align="center"
-      className="fixed left-0 right-0 top-0 z-[9] h-20 px-24 
-      py-4 transition-all duration-500 ease-in"
+      className="fixed left-0 right-0 top-0 z-[9] h-20 
+      px-24 transition-all duration-500 ease-in"
       id="header"
     >
       <Flex align="center">
