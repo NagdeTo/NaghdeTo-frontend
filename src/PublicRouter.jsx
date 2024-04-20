@@ -12,6 +12,7 @@ import Prices from "./components/Public-layouts/Prices";
 import Footer from "./components/Public-layouts/Footer";
 import Decorative from "./components/Public-layouts/Decorative";
 import GoToTop from "./components/Public-layouts/GoToTop";
+import ContactUs from "./pages/ContactUs/ContactUs";
 import { useState, useEffect } from "react";
 
 const PublicRouter = () => {
@@ -37,6 +38,7 @@ const PublicRouter = () => {
   return (
     <>
       <Header />
+      {/* <ContactUs/> */}
       <Flex
         vertical
         style={{

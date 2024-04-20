@@ -4,10 +4,10 @@ import logo from "../../assets/images/logo.svg";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa6";
-import { FaFacebookF } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import { FaAngleLeft } from "react-icons/fa6";
+import { FaFacebookF } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
+import { Link } from "react-router-dom";
 import "../Public-layouts/Styles/Footer.css";
 
 export default function Footer() {
