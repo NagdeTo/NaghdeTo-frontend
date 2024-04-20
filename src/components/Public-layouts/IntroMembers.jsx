@@ -13,7 +13,13 @@ import { Link } from "react-router-dom";
 
 export default function IntroMembers() {
   return (
-    <Flex align="center" className="py-36" gap="20px" vertical>
+    <Flex
+      align="center"
+      className="py-36"
+      gap="20px"
+      vertical
+      id="intro-members"
+    >
       <Typography.Title level={3} className="mb-0">
         با اعضای تیم نقدتو بیشتر آشنا شو
       </Typography.Title>
@@ -22,10 +28,10 @@ export default function IntroMembers() {
         تیم ما تشکیل شده از بچه‌های با انگیزه دانشگاه اصفهان
       </Typography.Text>
 
-      <Flex gap="50px">
+      <Flex gap="50px" className="relative">
         <Flex vertical align="center" gap="10px" className="team-member">
-          <img src={first} className="relative h-[180px] rounded-[50%]" />
-          <Flex gap="10px" className="socials absolute top-[410px] opacity-0">
+          <img src={first} className="h-[180px] rounded-[50%]" />
+          <Flex gap="10px" className="socials absolute top-[80px] opacity-0">
             <Link>
               <FaLinkedinIn className="h-5 w-5 text-[#535657] hover:text-primary-1000" />
             </Link>
@@ -51,7 +57,7 @@ export default function IntroMembers() {
         </Flex>
         <Flex vertical align="center" gap="10px" className="team-member">
           <img src={second} className="h-[180px] rounded-[50%]" />
-          <Flex gap="10px" className="socials absolute top-[410px] opacity-0">
+          <Flex gap="10px" className="socials absolute top-[80px] opacity-0">
             <Link>
               <FaLinkedinIn className="h-5 w-5 text-[#535657] hover:text-primary-1000" />
             </Link>
@@ -77,7 +83,7 @@ export default function IntroMembers() {
         </Flex>
         <Flex vertical align="center" gap="10px" className="team-member">
           <img src={third} className="h-[180px] rounded-[50%]" />
-          <Flex gap="10px" className="socials absolute top-[410px] opacity-0">
+          <Flex gap="10px" className="socials absolute top-[80px] opacity-0">
             <Link>
               <FaLinkedinIn className="h-5 w-5 text-[#535657] hover:text-primary-1000" />
             </Link>
@@ -103,7 +109,7 @@ export default function IntroMembers() {
         </Flex>
         <Flex vertical align="center" gap="10px" className="team-member">
           <img src={fourth} className="h-[180px] rounded-[50%]" />
-          <Flex gap="10px" className="socials absolute top-[410px] opacity-0">
+          <Flex gap="10px" className="socials absolute top-[80px] opacity-0">
             <Link>
               <FaLinkedinIn className="h-5 w-5 text-[#535657] hover:text-primary-1000" />
             </Link>
