@@ -131,7 +131,12 @@ const Answer = () => {
                 >
                   تایید و ارسال
                 </Button>
-                <Button key="cancel" className="ml-4" onClick={() => setModalOpen(false)} danger>
+                <Button
+                  key="cancel"
+                  className="ml-4"
+                  onClick={() => setModalOpen(false)}
+                  danger
+                >
                   ضبط دوباره
                 </Button>
               </>

@@ -4,6 +4,8 @@ import AddCriticism from "./pages/AddCriticism/AddCriticism";
 import { Routes, Route } from "react-router-dom";
 import ResponseList from "./pages/Responses/ResponseList";
 import Answer from "./pages/Answer/Answer";
+import ContactUs from "./pages/ContactUs/ContactUs";
+
 const DashboardRouter = () => {
   return (
     <DashboardLayout>
@@ -13,6 +15,7 @@ const DashboardRouter = () => {
         <Route path="add-criticism" element={<AddCriticism />} />
         <Route path="response-list" element={<ResponseList/>} />
         <Route path="answer" element={<Answer />} />
+        <Route path="contact-us" element={<ContactUs />} />
       </Routes>
     </DashboardLayout>
   );
