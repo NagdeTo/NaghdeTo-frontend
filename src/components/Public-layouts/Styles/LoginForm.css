@@ -1,0 +1,4 @@
+.google-btn.ant-btn span:nth-child(2),
+.facebook-btn.ant-btn span:nth-child(2) {
+  margin-top: 5px;
+}

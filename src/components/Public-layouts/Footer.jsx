@@ -107,12 +107,13 @@ export default function Footer() {
         </Typography.Text>
         <Form className="mt-2 flex flex-col gap-6">
           <Form.Item
-            label="ایمیل خود را بنویسید"
+            label="ایمیل"
+            colon={false}
+            name="email"
             rules={[
               {
                 required: true,
                 message: "ایمیل خود را وارد کنید!",
-                type: "email",
               },
             ]}
           >
@@ -124,7 +125,7 @@ export default function Footer() {
 
           <Form.Item>
             <Button
-              className="mt-2 flex w-full items-center justify-center
+              className="mt-7 flex w-full items-center justify-center
             bg-primary-1000 p-5 text-white shadow-md"
               htmlType="submit"
             >
