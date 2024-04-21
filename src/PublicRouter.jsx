@@ -15,6 +15,7 @@ const PublicRouter = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/contact-us" element={<ContactUs />} />
       </Routes>
       {location.pathname !== "/login" && <Footer />}
     </>

@@ -1,21 +1,23 @@
-
 import DashboardLayout from "./components/Dashboard-layouts/Layout";
 import Dashboard from "./pages/Dashboard/Dashboard";
-import {Routes, Route} from "react-router-dom"
+import AddCriticism from "./pages/AddCriticism/AddCriticism";
+import { Routes, Route } from "react-router-dom";
+import ResponseList from "./pages/Responses/ResponseList";
+import Answer from "./pages/Answer/Answer";
+import ContactUs from "./pages/ContactUs/ContactUs";
+
 const DashboardRouter = () => {
   return (
-    <>
-      {/* <DashboardLayout /> */}
-      <DashboardLayout>
-        
+    <DashboardLayout>
       <Routes>
         {/* صفحات دیگر را اضافه کنید */}
         <Route path="dashboard" element={<Dashboard />} />
+        <Route path="add-criticism" element={<AddCriticism />} />
+        <Route path="response-list" element={<ResponseList/>} />
+        <Route path="answer" element={<Answer />} />
+        <Route path="contact-us" element={<ContactUs />} />
       </Routes>
-      </DashboardLayout>
-      {/* <Dashboard /> */}
-      {/* <Sidebar /> */}
-    </>
+    </DashboardLayout>
   );
 };
 

@@ -1,0 +1,7 @@
+.ant-input-filled:focus-within {
+    border:none;
+    background-color: rgba(0, 0, 0, 0.04) ;
+}
+.recording{
+    width:100% !important
+}
