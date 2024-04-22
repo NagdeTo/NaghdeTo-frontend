@@ -3,7 +3,7 @@
   font-size: 16px;
 }
 
-.ant-form-item-row{
+.newsletter .ant-form-item .ant-form-item-row{
   flex-direction: column;
   align-items: flex-start;
   gap: 5px;

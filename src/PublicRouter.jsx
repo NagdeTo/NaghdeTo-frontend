@@ -4,6 +4,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import AboutUs from "./pages/Public/AboutUs";
 import Home from "./pages/Public/Home";
 import Login from "./pages/Public/Login";
+import ContactUs from "./pages/Public/ContactUs";
 
 const PublicRouter = () => {
   const location = useLocation();
@@ -14,8 +15,8 @@ const PublicRouter = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/login" element={<Login />} />
         <Route path="/contact-us" element={<ContactUs />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
       {location.pathname !== "/login" && <Footer />}
     </>
