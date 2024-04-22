@@ -5,7 +5,7 @@ import LoginForm from "../../components/Public-layouts/LoginForm";
 
 export default function Login() {
   return (
-    <Flex justify="center">
+    <Flex justify="center" className="px-32">
       <img src={login} className="h-[100vh] w-[45vw]" />
       <LoginForm />
     </Flex>
