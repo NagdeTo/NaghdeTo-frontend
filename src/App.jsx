@@ -3,7 +3,7 @@ import DashboardRouter from "./DashboardRouter";
 import PublicRouter from "./PublicRouter";
 
 const App = () => {
-  const [token, setToken] = useState(true);
+  const [token, setToken] = useState(false);
   return (
     <div className={`App `}>
       {token ? <DashboardRouter /> : <PublicRouter />}

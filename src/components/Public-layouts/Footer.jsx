@@ -9,8 +9,11 @@ import { FaFacebookF } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import "../Public-layouts/Styles/Footer.css";
+import { useState } from "react";
 
 export default function Footer() {
+const [newsLetterClicked, setNewsLetterClicked] = useState(false)
+
   return (
     <Flex
       className="bg-slate-100 p-24"
@@ -105,14 +108,15 @@ export default function Footer() {
         <Typography.Text className="max-w-56 text-[16px] text-[#6c757d]">
           ثبت‌نام کنید و آخرین اخبار نقدتو را از طریق ایمیل دریافت کنید.
         </Typography.Text>
-        <Form className="mt-2 flex flex-col gap-6">
+        <Form className="mt-2 flex flex-col newsletter">
           <Form.Item
-            label="ایمیل خود را بنویسید"
+            label="ایمیل"
+            colon={false}
+            name="email"
             rules={[
               {
                 required: true,
                 message: "ایمیل خود را وارد کنید!",
-                type: "email",
               },
             ]}
           >
@@ -122,11 +126,12 @@ export default function Footer() {
             />
           </Form.Item>
 
-          <Form.Item>
+          <Form.Item >
             <Button
-              className="mt-2 flex w-full items-center justify-center
-            bg-primary-1000 p-5 text-white shadow-md"
+              className={`flex w-full items-center justify-center
+            bg-primary-1000 p-5 text-white shadow-md ${newsLetterClicked ? "mt-16" : "mt-7"}`}
               htmlType="submit"
+              onClick={() => setNewsLetterClicked(true)}
             >
               خبرنامه
             </Button>
