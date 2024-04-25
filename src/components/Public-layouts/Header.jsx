@@ -90,11 +90,11 @@ export default function Header() {
         </Link>
       </Flex>
 
-      <StyledButton>
-        <Link to="/login" className="hover:text-white">
+      <Link to="/login" className="hover:text-white">
+        <StyledButton>
           ورود / ثبت‌نام
-        </Link>
-      </StyledButton>
+        </StyledButton>
+      </Link>
     </Flex>
   );
 }

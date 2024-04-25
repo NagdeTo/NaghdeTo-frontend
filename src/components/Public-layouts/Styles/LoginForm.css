@@ -6,8 +6,5 @@
 .email-form-item.ant-form-item .ant-form-item-row .ant-form-item-label,
 .password-form-item.ant-form-item .ant-form-item-row .ant-form-item-label {
   width: 70px;
-}
-
-.email-form-item.ant-form-item .ant-form-item-row .ant-form-item-label {
   text-align: right;
 }

@@ -7,7 +7,6 @@ export default {
       sans: ["IRANSansX-Regular.ttf", "sans-serif"],
 
       iranSans: ["IRANSansX-Regular.ttf", "sans-serif"],
-      // serif: ["Merriweather", "serif"],
     },
     extend: {
       screens: {
@@ -45,7 +44,7 @@ export default {
         grey: "#f8f9fa",
         placeHolder: "rgba(0, 0, 0, 0.65)",
       },
-     
+
       spacing: {
         128: "32rem",
         144: "36rem",

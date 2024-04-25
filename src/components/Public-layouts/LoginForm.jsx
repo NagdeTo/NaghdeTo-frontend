@@ -5,14 +5,19 @@ import { HiOutlineMail } from "react-icons/hi";
 import { MdLockOutline } from "react-icons/md";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebookF } from "react-icons/fa";
-import GoToHome from "./GoToHome";
 import "../Public-layouts/Styles/LoginForm.css";
 
 export default function LoginForm() {
   const [loginButtonClicked, setLoginButtonclicked] = useState(false);
 
   return (
-    <Flex vertical align="center" justify="center" className="w-1/2 py-12" gap="10px">
+    <Flex
+      vertical
+      align="center"
+      justify="center"
+      className="w-1/2 py-12"
+      gap="10px"
+    >
       <Typography.Title level={3}>ورود</Typography.Title>
       <Form className="flex flex-col items-center gap-6" id="login-form">
         <Form.Item
@@ -46,7 +51,9 @@ export default function LoginForm() {
         </Form.Item>
 
         <Flex align="center" className="w-full" justify="space-between">
-          <Link className="font-bold hover:text-primary-1000">فراموشی رمز عبور؟</Link>
+          <Link className="font-bold hover:text-primary-1000">
+            فراموشی رمز عبور؟
+          </Link>
           <Form.Item name="remember" className="mb-0">
             <Checkbox>مرا بخاطر بسپار</Checkbox>
           </Form.Item>
@@ -54,7 +61,7 @@ export default function LoginForm() {
 
         <Form.Item className="mb-0 w-full">
           <Button
-            className="w-full h-[40px] bg-primary-1000 text-white"
+            className="h-[40px] w-full bg-primary-1000 text-white"
             htmlType="submit"
             onClick={() => setLoginButtonclicked(true)}
           >
@@ -65,13 +72,13 @@ export default function LoginForm() {
         <Flex vertical gap="10px" className="w-full">
           <Button
             icon={<FcGoogle className="h-5 w-5" />}
-            className="google-btn flex items-center justify-center w-full"
+            className="google-btn flex w-full items-center justify-center"
           >
             Continue With Google
           </Button>
           <Button
             icon={<FaFacebookF className="h-5 w-5 text-[#4267b3]" />}
-            className="facebook-btn flex items-center justify-center w-full"
+            className="facebook-btn flex w-full items-center justify-center"
           >
             Continue With Facebook
           </Button>
@@ -84,7 +91,6 @@ export default function LoginForm() {
           <Typography.Text>حساب ندارید؟</Typography.Text>
         </Flex>
       </Form>
-      <GoToHome />
     </Flex>
   );
 }

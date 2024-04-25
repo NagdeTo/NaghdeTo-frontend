@@ -1,0 +1,13 @@
+.email-form-item-signup.ant-form-item .ant-form-item-row .ant-form-item-label,
+.password-form-item-signup.ant-form-item
+  .ant-form-item-row
+  .ant-form-item-label,
+.first-name-form-item-signup.ant-form-item
+  .ant-form-item-row
+  .ant-form-item-label,
+.last-name-form-item-signup.ant-form-item
+  .ant-form-item-row
+  .ant-form-item-label {
+  width: 110px;
+  text-align: right;
+}
