@@ -2,3 +2,9 @@
 .facebook-btn.ant-btn span:nth-child(2) {
   margin-top: 5px;
 }
+
+.email-form-item.ant-form-item .ant-form-item-row .ant-form-item-label,
+.password-form-item.ant-form-item .ant-form-item-row .ant-form-item-label {
+  width: 70px;
+  text-align: right;
+}
