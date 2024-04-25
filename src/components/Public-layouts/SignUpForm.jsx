@@ -28,7 +28,7 @@ export default function SignUpForm() {
           rules={[
             {
               required: true,
-              message: "نام خود را وارد نمایید",
+              message: "لطفاً نام خود را وارد نمایید!",
             },
           ]}
           className="first-name-form-item-signup mb-0"
@@ -46,7 +46,7 @@ export default function SignUpForm() {
           rules={[
             {
               required: true,
-              message: "نام خانوادگی خود را وارد نمایید",
+              message: "لطفاً نام خانوادگی خود را وارد نمایید!",
             },
           ]}
           className="last-name-form-item-signup mb-0"
@@ -126,7 +126,8 @@ export default function SignUpForm() {
         </Flex>
 
         <Flex
-          justify="space-between"
+          justify="flex-end"
+          gap="5px"
           className="w-full"
           align="center"
           style={{ direction: "ltr" }}

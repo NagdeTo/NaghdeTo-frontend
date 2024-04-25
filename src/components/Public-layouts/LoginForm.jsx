@@ -51,7 +51,10 @@ export default function LoginForm() {
         </Form.Item>
 
         <Flex align="center" className="w-full" justify="space-between">
-          <Link className="font-bold hover:text-primary-1000">
+          <Link
+            to="/forget-password"
+            className="font-bold hover:text-primary-1000"
+          >
             فراموشی رمز عبور؟
           </Link>
           <Form.Item name="remember" className="mb-0">
@@ -84,7 +87,7 @@ export default function LoginForm() {
           </Button>
         </Flex>
 
-        <Flex justify="space-between" className="w-full" align="center">
+        <Flex justify="flex-end" gap="5px" className="w-full" align="center">
           <Link to="/sign-up" className="font-bold hover:text-primary-1000">
             ثبت‌نام کنید
           </Link>
