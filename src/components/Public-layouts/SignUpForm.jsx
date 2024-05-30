@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Flex, Typography, Input, Form, Checkbox, Button } from "antd";
 import { FiUser } from "react-icons/fi";
 import { FiUserCheck } from "react-icons/fi";
@@ -8,8 +8,36 @@ import "../Public-layouts/Styles/SignUpForm.css";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebookF } from "react-icons/fa";
+import axios from "axios";
+import config from "../../services/config.json";
 
 export default function SignUpForm() {
+  const [bodyData, setBodyData] = useState({
+    username: "",
+    password: "",
+    first_name: "",
+    last_name: "",
+  });
+
+  const handleClickSignUp = async () => {
+    try {
+      // e.preventDefault();
+      const response = await axios.post(
+        `${config.localapi}/register`,
+        bodyData,
+        {
+          headers: {
+            accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        },
+      );
+      console.log(response);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
     <Flex
       className="py-12"
@@ -36,6 +64,10 @@ export default function SignUpForm() {
           <Input
             placeholder="نام"
             prefix={<FiUser className="h-5 w-5 text-[#6c757d]" />}
+            value={bodyData.first_name}
+            onChange={(e) =>
+              setBodyData({ ...bodyData, first_name: e.target.value })
+            }
           />
         </Form.Item>
 
@@ -54,6 +86,10 @@ export default function SignUpForm() {
           <Input
             placeholder="نام خانوادگی"
             prefix={<FiUserCheck className="h-5 w-5 text-[#6c757d]" />}
+            value={bodyData.last_name}
+            onChange={(e) =>
+              setBodyData({ ...bodyData, last_name: e.target.value })
+            }
           />
         </Form.Item>
 
@@ -65,8 +101,12 @@ export default function SignUpForm() {
           className="email-form-item-signup mb-0"
         >
           <Input
-            placeholder="ایمیل"
+            placeholder="ایمیل (نام کاربری)"
             prefix={<HiOutlineMail className="h-5 w-5 text-[#6c757d]" />}
+            value={bodyData.username}
+            onChange={(e) =>
+              setBodyData({ ...bodyData, username: e.target.value })
+            }
           />
         </Form.Item>
 
@@ -80,9 +120,13 @@ export default function SignUpForm() {
           ]}
           className="password-form-item-signup mb-0"
         >
-          <Input
+          <Input.Password
             placeholder="رمز عبور"
             prefix={<MdLockOutline className="h-5 w-5 text-[#6c757d]" />}
+            value={bodyData.password}
+            onChange={(e) =>
+              setBodyData({ ...bodyData, password: e.target.value })
+            }
           />
         </Form.Item>
 
@@ -100,6 +144,7 @@ export default function SignUpForm() {
           <Button
             className="h-[40px] w-full bg-primary-1000 text-white"
             htmlType="submit"
+            onClick={handleClickSignUp}
           >
             ثبت‌نام
           </Button>
