@@ -14,7 +14,6 @@ body {
   box-sizing: border-box;
 }
 
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -22,10 +21,14 @@ code {
 .ant-spin-dot-item {
   background-color: white !important;
 }
-.ant-table-wrapper .ant-table-pagination.ant-pagination{
+.ant-table-wrapper .ant-table-pagination.ant-pagination {
   direction: ltr;
   justify-content: center;
-  }
-  .ant-table-cell-row-hover {
-    background-color: transparent !important;
-  }
+}
+.ant-table-cell-row-hover {
+  background-color: transparent !important;
+}
+
+.Toastify__toast-body {
+  font-family: "IRANSansX";
+}
