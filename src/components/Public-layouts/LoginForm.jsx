@@ -26,7 +26,7 @@ export default function LoginForm() {
           colon={false}
           name="email"
           rules={[{ required: true, message: "لطفاً ایمیل خود را وارد کنید!" }]}
-          className={`${loginButtonClicked ? "mb-4" : "mb-0"} email-form-item`}
+          className={`${loginButtonClicked ? "mb-4" : "mb-0"} email-form-item w-full`}
         >
           <Input
             placeholder="ایمیل"
@@ -44,7 +44,8 @@ export default function LoginForm() {
           ]}
           className={`${loginButtonClicked ? "mb-4" : "mb-0"} password-form-item`}
         >
-          <Input
+          <Input.Password
+            /* <Input */
             placeholder="رمز عبور"
             prefix={<MdLockOutline className="h-5 w-5 text-[#6c757d]" />}
           />
