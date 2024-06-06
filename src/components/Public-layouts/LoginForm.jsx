@@ -6,9 +6,28 @@ import { MdLockOutline } from "react-icons/md";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebookF } from "react-icons/fa";
 import "../Public-layouts/Styles/LoginForm.css";
+import { Login } from "../../services/APIs";
+import Cookies from "universal-cookie";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginForm() {
   const [loginButtonClicked, setLoginButtonclicked] = useState(false);
+  const [bodyData, setBodyData] = useState({ username: "", password: "" });
+  const cookies = new Cookies();
+  const navigate = useNavigate();
+
+  const handleClickLogin = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await Login(bodyData);
+      cookies.set("access_token", response.data.access_token);
+      navigate("/dashboard");
+      window.location.reload();
+      console.log(response);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <Flex
@@ -31,6 +50,10 @@ export default function LoginForm() {
           <Input
             placeholder="ایمیل"
             prefix={<HiOutlineMail className="h-5 w-5 text-[#6c757d]" />}
+            value={bodyData.username}
+            onChange={(e) =>
+              setBodyData({ ...bodyData, username: e.target.value })
+            }
           />
         </Form.Item>
 
@@ -45,9 +68,12 @@ export default function LoginForm() {
           className={`${loginButtonClicked ? "mb-4" : "mb-0"} password-form-item`}
         >
           <Input.Password
-            /* <Input */
             placeholder="رمز عبور"
             prefix={<MdLockOutline className="h-5 w-5 text-[#6c757d]" />}
+            value={bodyData.password}
+            onChange={(e) =>
+              setBodyData({ ...bodyData, password: e.target.value })
+            }
           />
         </Form.Item>
 
@@ -67,7 +93,8 @@ export default function LoginForm() {
           <Button
             className="h-[40px] w-full bg-primary-1000 text-white"
             htmlType="submit"
-            onClick={() => setLoginButtonclicked(true)}
+            // onClick={() => setLoginButtonclicked(true)}
+            onClick={handleClickLogin}
           >
             ورود
           </Button>

@@ -12,7 +12,7 @@ const DashboardRouter = () => {
         {/* صفحات دیگر را اضافه کنید */}
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="add-criticism" element={<AddCriticism />} />
-        <Route path="response-list" element={<ResponseList/>} />
+        <Route path="response-list" element={<ResponseList />} />
         <Route path="answer" element={<Answer />} />
       </Routes>
     </DashboardLayout>
