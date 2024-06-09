@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Flex, Typography, Input, Form, Checkbox, Button } from "antd";
 import { FiUser } from "react-icons/fi";
 import { FiUserCheck } from "react-icons/fi";
@@ -39,11 +39,13 @@ export default function SignUpForm() {
         "ثبت‌نام با موفقیت انجام شد تا لحظاتی دیگر به صفحه لاگین هدایت می‌شوید",
         {
           autoClose: 2000,
-          onClose: () => navigate("/login"),
+          onClose: () => {
+            resetFields();
+            navigate("/login");
+          },
         },
       );
       console.log(response);
-      resetFields();
     } catch (err) {
       const errorMessage = err.response.data;
       toast.error(errorMessage, { autoClose: 3000 });
