@@ -1,4 +1,9 @@
 import axios from "axios";
+import Cookies from "universal-cookie";
+
+const cookies = new Cookies();
+
+const accessToken = cookies.get("access_token");
 
 const httpClient = axios.create({
   baseURL: `${import.meta.env.VITE_BASE_URL}`,
@@ -11,11 +16,11 @@ const httpClient = axios.create({
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",
-    // token: token ? `Bearer ${token}` : null,
+    token: accessToken ? `Bearer ${accessToken}` : null,
   },
 });
 
-export async function callApi(url, body, method = "post", config, headers) {
+export async function callApi(url, body, method = "post", headers, config) {
   return httpClient({
     method: method,
     url: url,

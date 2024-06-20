@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Flex, Typography, Input, Form, Checkbox, Button } from "antd";
 import { FiUser } from "react-icons/fi";
 import { FiUserCheck } from "react-icons/fi";
 import { HiOutlineMail } from "react-icons/hi";
 import { MdLockOutline } from "react-icons/md";
 import "../Public-layouts/Styles/SignUpForm.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebookF } from "react-icons/fa";
 import { SignUp } from "../../services/APIs";
@@ -20,8 +20,8 @@ export default function SignUpForm() {
     first_name: "",
     last_name: "",
   });
-
   const [checkRules, setCheckRules] = useState(false);
+  const navigate = useNavigate();
 
   const handleChangeCheckRules = (e) => {
     setCheckRules(e.target.checked);
@@ -35,11 +35,19 @@ export default function SignUpForm() {
     try {
       if (!checkRules) return;
       const response = await SignUp(bodyData);
-      toast.success("ثبت‌نام با موفقیت انجام شد");
+      toast.success(
+        "ثبت‌نام با موفقیت انجام شد تا لحظاتی دیگر به صفحه لاگین هدایت می‌شوید",
+        {
+          autoClose: 2000,
+          onClose: () => {
+            resetFields();
+            navigate("/login");
+          },
+        },
+      );
       console.log(response);
-      resetFields();
     } catch (err) {
-      const errorMessage = err.response.data.detail[0].msg;
+      const errorMessage = err.response.data;
       toast.error(errorMessage, { autoClose: 3000 });
       console.error(err);
     }
@@ -148,6 +156,7 @@ export default function SignUpForm() {
             <Form.Item
               name="remember"
               className="mb-0"
+              valuePropName="checked"
               rules={[
                 {
                   validator: () =>
