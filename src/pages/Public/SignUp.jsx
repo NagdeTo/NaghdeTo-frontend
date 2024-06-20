@@ -8,7 +8,7 @@ export default function SignUp() {
   return (
     <Row className="px-32">
       <Col span={13}>
-        <img src={signup} className="h-[100vh] w-[40vw]" />
+        <img src={signup} className="h-[100%] w-[100%]" />
       </Col>
       <Col span={11} className="flex justify-center">
         <SignUpForm />

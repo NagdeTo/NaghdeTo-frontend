@@ -19,7 +19,7 @@ code {
     monospace;
 }
 .ant-spin-dot-item {
-  background-color: white !important;
+  /* background-color: white !important; */
 }
 .ant-table-wrapper .ant-table-pagination.ant-pagination {
   direction: ltr;

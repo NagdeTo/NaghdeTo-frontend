@@ -41,7 +41,7 @@ export default function LoginForm() {
       console.log(response);
       resetFields();
     } catch (err) {
-      const errorMessage = err.response.data.detail;
+      const errorMessage = err.response.data;
       toast.error(errorMessage);
       console.error(err);
     }
