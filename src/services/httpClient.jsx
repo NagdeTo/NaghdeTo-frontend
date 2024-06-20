@@ -13,11 +13,11 @@ const httpClient = axios.create({
   cache: "no-cache",
   credentials: "same-origin",
   maxBodyLength: Infinity,
-  headers: {
-    Accept: "application/json",
-    "Content-Type": "application/json",
-    token: accessToken ? `Bearer ${accessToken}` : null,
-  },
+  // headers: {
+  //   Accept: "application/json",
+  //   "Content-Type": "application/json",
+  //   Authorization: accessToken ? `Bearer ${accessToken}` : null,
+  // },
 });
 
 export async function callApi(url, body, method = "post", headers, config) {
