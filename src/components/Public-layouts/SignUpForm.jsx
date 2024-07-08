@@ -9,8 +9,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebookF } from "react-icons/fa";
 import { SignUp } from "../../services/APIs";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 export default function SignUpForm() {
   const [form] = Form.useForm();
@@ -224,7 +223,6 @@ export default function SignUpForm() {
           </Flex>
         </Form>
       </Flex>
-      <ToastContainer />
     </>
   );
 }

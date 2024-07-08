@@ -9,8 +9,7 @@ import "../Public-layouts/Styles/LoginForm.css";
 import { Login } from "../../services/APIs";
 import Cookies from "universal-cookie";
 import { useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 export default function LoginForm() {
   const [loginButtonClicked, setLoginButtonclicked] = useState(false);
@@ -28,6 +27,7 @@ export default function LoginForm() {
     try {
       const response = await Login(bodyData);
       cookies.set("access_token", response.data.access_token);
+      console.log(response);
       toast.success(
         "با موفقیت وارد شدید تا لحظاتی دیگر به صفحه اصلی هدایت می‌شوید",
         {
@@ -43,7 +43,6 @@ export default function LoginForm() {
     } catch (err) {
       const errorMessage = err.response.data;
       toast.error(errorMessage);
-      console.error(err);
     }
   };
 
@@ -148,7 +147,6 @@ export default function LoginForm() {
           </Flex>
         </Form>
       </Flex>
-      <ToastContainer />
     </>
   );
 }

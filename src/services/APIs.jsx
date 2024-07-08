@@ -16,3 +16,12 @@ export const Login = async (data) => {
   };
   return callApi("/token", data, "post", headers);
 };
+
+export const CreateCriticism = async (data) => {
+  const headers = {
+    Accept: "application/json",
+    "Content-Type": "application/json",
+    Authorization: accessToken ? `Bearer ${accessToken}` : null,
+  };
+  return callApi("/question/create", data, "post", headers);
+};

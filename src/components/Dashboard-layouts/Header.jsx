@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { PageHeader } from "@ant-design/pro-components";
 import { Dropdown, Button, Space, Avatar, Menu, Flex } from "antd";
 import { IoExitOutline } from "react-icons/io5";
@@ -6,9 +6,13 @@ import { IoMdSearch } from "react-icons/io";
 import { RxAvatar } from "react-icons/rx";
 import Sidebar from "./Sidebar";
 import Typography from "antd/es/typography/Typography";
+import Cookies from "universal-cookie";
+import { useNavigate } from "react-router";
 
 const DashboardHeader = () => {
   const [scroll, setScroll] = useState(false);
+
+  const cookies = new Cookies();
 
   // const menu = (
   //   <Menu onClick={handleMenuClick}>
@@ -17,12 +21,19 @@ const DashboardHeader = () => {
   //     <Menu.Item key="logout">خروج</Menu.Item>
   //   </Menu>
   // );
+
+  const navigate = useNavigate();
+
   const items = [
     {
       key: 1,
       danger: true,
       label: "Log Out",
       icon: <IoExitOutline size={20} />,
+      onClick: () => {
+        cookies.remove("access_token");
+        navigate("/");
+      },
     },
   ];
 
@@ -47,8 +58,8 @@ const DashboardHeader = () => {
       onBack={() => {}}
       subTitle=" "
       extra={[
-        <Flex key={1} vertical={false} className="gap-3 items-center">
-          <Typography className="text-placeHolder	 text-xl">Search</Typography>
+        <Flex key={1} vertical={false} className="items-center gap-3">
+          <Typography className="text-xl	 text-placeHolder">Search</Typography>
           <IoMdSearch color="rgba(0, 0, 0, 0.65)" size={30} />
         </Flex>,
       ]}

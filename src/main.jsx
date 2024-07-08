@@ -4,6 +4,8 @@ import App from "./App.jsx";
 import "./index.css";
 import { ConfigProvider } from "antd";
 import { BrowserRouter } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
@@ -13,11 +15,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         token: {
           fontFamily: "IRANSansX",
           colorPrimary: "rgba(88, 129, 87, 0.9)",
-          // darkItemSelectedBg: "rgba(233, 245, 219, 1)",
           colorBgContainer: "#f8f9fa",
         },
       }}
     >
+      <ToastContainer />
       <App />
     </ConfigProvider>
   </BrowserRouter>,
