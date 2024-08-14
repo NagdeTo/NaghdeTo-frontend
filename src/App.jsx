@@ -34,7 +34,8 @@ const App = () => {
 
   const showHeaderFooter =
     !publicPaths.includes(location.pathname) &&
-    !dashboardPaths.includes(location.pathname);
+    !dashboardPaths.includes(location.pathname) &&
+    !location.pathname.startsWith("/response");
 
   useEffect(() => {
     setToken(cookies.get("access_token"));
@@ -56,7 +57,7 @@ const App = () => {
               <Routes>
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/add-criticism" element={<AddCriticism />} />
-                <Route path="/response-list" element={<ResponseList />} />
+                <Route path="/response-list/:id" element={<ResponseList />} />
                 <Route path="/answer" element={<Answer />} />
               </Routes>
             </DashboardLayout>

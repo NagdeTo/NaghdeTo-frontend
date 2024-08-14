@@ -44,6 +44,7 @@ const Answer = () => {
     setTyping(false);
   };
   const addAudioElement = (blob) => {
+    console.log(blob);
     const url = URL.createObjectURL(blob);
     const audio = document.createElement("audio");
     // audio.src = url;
@@ -149,25 +150,12 @@ const Answer = () => {
         ]}
       >
         <Flex className="mt-3 flex-col items-end justify-between gap-3 pr-5">
-          {/* <Typography className="font-semibold	 text-lg">:صدای ضبط شده</Typography>
-        <audio src={voiceMessage&&voiceMessage.url} controls={true} className="h-[45px]" /> */}
           <Typography className="text-lg	 font-semibold">
             :صدای ناشناس
           </Typography>
           <audio src={voiceMessage && voiceMessage.url} controls={true} />
         </Flex>
 
-        {/* {success ? (
-                <CheckCircleOutlined
-                  size={50}
-                  className="text-5xl text-primary-1000"
-                />
-              ) : (
-                <CloseCircleOutlined
-                  size={50}
-                  className="text-5xl text-red-500"
-                />
-              )} */}
       </Modal>
     </Flex>
   );

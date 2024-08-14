@@ -4,7 +4,25 @@ import ChatBubble from "../../components/Chat/ChatBubble"
 
 import ReactAudioPlayer from "react-audio-player";
 import "./ResponseList.css"
+import { GetResponsesList } from "../../services/APIs";
+import { useEffect, useState } from "react";
 const ResponseList = () => {
+
+  const [data, setData] = useState([]);
+  const getData = async () => {
+    try {
+      const response = await GetResponsesList();
+      setData(response.data);
+      console.log(response);
+    } catch (err) {
+      toast.error(err.messaga);
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   const columns = [
     {
       title: "نام پاسخ‌دهنده",
@@ -29,29 +47,29 @@ const ResponseList = () => {
     },
   ];
 
-  const data = [
-    {
-      key: 1,
-      name: "فاطمه عبادی",
-      date: "۱۴۰۳/۰۱/۲۴",
-      time: "۱۲:۴۵",
-      content: <ReactAudioPlayer  src={audioc} autoPlay controls />,
-    },
-    {
-      key: 2,
-      name: "حانیه موحدیان",
-      date: "۱۴۰۳/۰۱/۲۴",
-      time: "۱۲:۴۵",
-      content: <ChatBubble message="متن تست" maxWidth="max-w-[300px]" />,
-    },
-    {
-      key: 3,
-      name: "فاطمه عبادی",
-      date: "۱۴۰۳/۰۱/۲۴",
-      time: "۱۲:۴۵",
-      content: <ReactAudioPlayer  src={audioc} autoPlay controls />,
-    },
-  ];
+  // const data = [
+  //   {
+  //     key: 1,
+  //     name: "فاطمه عبادی",
+  //     date: "۱۴۰۳/۰۱/۲۴",
+  //     time: "۱۲:۴۵",
+  //     content: <ReactAudioPlayer  src={audioc} autoPlay controls />,
+  //   },
+  //   {
+  //     key: 2,
+  //     name: "حانیه موحدیان",
+  //     date: "۱۴۰۳/۰۱/۲۴",
+  //     time: "۱۲:۴۵",
+  //     content: <ChatBubble message="متن تست" maxWidth="max-w-[300px]" />,
+  //   },
+  //   {
+  //     key: 3,
+  //     name: "فاطمه عبادی",
+  //     date: "۱۴۰۳/۰۱/۲۴",
+  //     time: "۱۲:۴۵",
+  //     content: <ReactAudioPlayer  src={audioc} autoPlay controls />,
+  //   },
+  // ];
 
   return (
     <Flex className=" mt-10 flex  min-h-10 items-center justify-center rounded-xl bg-white px-5 py-10 shadow-lg">
