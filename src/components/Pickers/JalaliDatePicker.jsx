@@ -7,7 +7,7 @@ import { SwapLeftOutlined } from "@ant-design/icons";
 dayjs.extend(jalaliday);
 
 const JalaliDatePicker = (props) => {
-  const{setValue} = props
+  const { setValue } = props;
   const [locale] = useState(fa_IR);
 
   const jalaliDate = dayjs(new Date("2020-11-11"))
@@ -15,7 +15,7 @@ const JalaliDatePicker = (props) => {
     .locale("fa");
   return (
     <DatePicker.RangePicker
-    onChange={e=>console.log(e)}
+      onChange={setValue}
       separator={<SwapLeftOutlined />}
       placeholder={["شروع", "پایان"]}
       defaultValue={jalaliDate}

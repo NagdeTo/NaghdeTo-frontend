@@ -19,9 +19,18 @@ export const Login = async (data) => {
 
 export const CreateCriticism = async (data) => {
   const headers = {
-    Accept: "application/json",
+    accept: "application/json",
     "Content-Type": "application/json",
     Authorization: accessToken ? `Bearer ${accessToken}` : null,
   };
-  return callApi("/question/create", data, "post", headers);
+  return callApi("/question_app/create", data, "post", headers);
+};
+
+export const GetQuestionsList = async () => {
+  const headers = {
+    accept: "application/json",
+    "Content-Type": "application/json",
+    Authorization: accessToken ? `Bearer ${accessToken}` : null,
+  };
+  return callApi("/question_app/list", null, "get", headers);
 };
