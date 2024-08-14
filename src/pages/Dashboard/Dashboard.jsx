@@ -3,6 +3,7 @@ import { Space, Table, Flex } from "antd";
 import { GetQuestionsList } from "../../services/APIs";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { MoreOutlined } from "@ant-design/icons";
 
 const Dashboard = () => {
   const [data, setData] = useState([]);
@@ -23,6 +24,11 @@ const Dashboard = () => {
 
   const columns = [
     {
+      title: "عنوان",
+      dataIndex: "title",
+      key: "title",
+    },
+    {
       title: "تاریخ پایان",
       key: "expire_date",
       dataIndex: "expire_date",
@@ -37,11 +43,7 @@ const Dashboard = () => {
       dataIndex: "content",
       key: "content",
     },
-    {
-      title: "عنوان",
-      dataIndex: "title",
-      key: "title",
-    },
+
     {
       title: "نحوه پاسخدهی",
       dataIndex: "how_to_answer",
@@ -49,44 +51,18 @@ const Dashboard = () => {
       render: (record) => <div>{record === "text" ? "متنی" : "صوتی"}</div>,
     },
     {
-      dataIndex: "how_to_answer",
-      key: "how_to_answer",
+      // dataIndex: "how_to_answer",
+      // key: "how_to_answer",
       render: (record, row) => (
-        <div onClick={() => navigate(`/response-list/${row._id}`)}>ss</div>
+        <MoreOutlined className="cursor-pointer" onClick={() => navigate(`/response-list/${row._id}`)}>
+        </MoreOutlined>
       ),
     },
   ];
-  // const data = [
-  //   {
-  //     key: "1",
-  //     name: "John Brown",
-  //     age: 32,
-  //     address: "New York No. 1 Lake Park",
-  //     tags: ["nice", "developer"],
-  //   },
-  //   {
-  //     key: "2",
-  //     name: "Jim Green",
-  //     age: 42,
-  //     address: "London No. 1 Lake Park",
-  //     tags: ["loser"],
-  //   },
-  //   {
-  //     key: "3",
-  //     name: "Joe Black",
-  //     age: 32,
-  //     address: "Sydney No. 1 Lake Park",
-  //     tags: ["cool", "teacher"],
-  //   },
-  // ];
+
   return (
     <Flex className=" mt-10 flex  min-h-10 items-center justify-center rounded-xl bg-white px-5 py-10 shadow-lg">
-      <Table
-        className="h-full w-full"
-        style={{ direction: "ltr" }}
-        columns={columns}
-        dataSource={data}
-      />
+      <Table className="h-full w-full" columns={columns} dataSource={data} />
     </Flex>
   );
 };

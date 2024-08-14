@@ -7,7 +7,6 @@ import Login from "./pages/Public/Login";
 import ContactUs from "./pages/Public/ContactUs";
 import SignUp from "./pages/Public/SignUp";
 import ForgetPassword from "./pages/Public/ForgetPassword";
-import ResponseList from "./pages/Responses/ResponseList";
 
 const PublicRouter = () => {
   const location = useLocation();

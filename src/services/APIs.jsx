@@ -34,3 +34,11 @@ export const GetQuestionsList = async () => {
   };
   return callApi("/question_app/list", null, "get", headers);
 };
+export const GetResponsesList = async (id) => {
+  const headers = {
+    accept: "application/json",
+    "Content-Type": "application/json",
+    Authorization: accessToken ? `Bearer ${accessToken}` : null,
+  };
+  return callApi(`/answer/list/${id}`, null, "get", headers);
+};
