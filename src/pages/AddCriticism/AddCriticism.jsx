@@ -8,6 +8,7 @@ import {
   Input,
   Modal,
   Spin,
+  Radio,
 } from "antd";
 import JalaliDatePicker from "../../components/Pickers/JalaliDatePicker";
 import NumericInput from "../../components/Inputs/NumericInput";
@@ -30,7 +31,7 @@ const AddCriticism = (props) => {
   const [form] = Form.useForm();
 
   useEffect(() => {
-    // console.log(date);
+    console.log(data);
   }, [date]);
 
   const resetFields = () => {
@@ -124,7 +125,22 @@ const AddCriticism = (props) => {
               },
             ]}
           >
-            <JalaliDatePicker setValue={setDate} />
+            <JalaliDatePicker
+              setValue={(e) => {
+                const dateObject = new Date(e[1]["$d"]);
+                const year = dateObject.getFullYear();
+                const month = String(dateObject.getMonth() + 1).padStart(
+                  2,
+                  "0",
+                ); // Months are zero-indexed
+                const day = String(dateObject.getDate()).padStart(2, "0");
+
+                // Format the date to 'YYYY-MM-DD'
+                const formattedDate = `${year}-${month}-${day}`;
+
+                setData({ ...data, expire_date: formattedDate });
+              }}
+            />
           </Form.Item>
           <Form.Item
             label="تعداد پاسخ دهندگان"
@@ -138,7 +154,7 @@ const AddCriticism = (props) => {
           >
             <NumericInput
               value={respondentsNumber}
-              onChange={setRespondentsNumber}
+              onChange={(v) => setData({ ...data, number_of_respondents: v })}
             />
           </Form.Item>
           <Form.Item
@@ -149,8 +165,16 @@ const AddCriticism = (props) => {
               span: 16,
             }}
           >
-            <Checkbox onChange={() => setAudio(!audio)}> صوتی</Checkbox>
-            <Checkbox onChange={() => setText(!text)}> متنی</Checkbox>
+            <Radio.Group
+              value={data?.how_to_answer}
+              onChange={(v) => {
+                setData({ ...data, how_to_answer: v.target.value });
+              }}
+            >
+              <Radio value="voice">صوتی</Radio>
+              <Radio value="text">متنی</Radio>
+            </Radio.Group>
+      
           </Form.Item>
           <Form.Item
             wrapperCol={{
