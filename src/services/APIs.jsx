@@ -14,7 +14,7 @@ export const Login = async (data) => {
     "Content-Type": "application/x-www-form-urlencoded",
     token: accessToken ? `Bearer ${accessToken}` : null,
   };
-  return callApi("/token", data, "post", headers);
+  return callApi("/login", data, "post", headers);
 };
 
 export const CreateCriticism = async (data) => {
