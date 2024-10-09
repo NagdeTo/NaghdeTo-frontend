@@ -23,7 +23,7 @@ export const CreateCriticism = async (data) => {
     "Content-Type": "application/json",
     Authorization: accessToken ? `Bearer ${accessToken}` : null,
   };
-  return callApi("/question_app/create", data, "post", headers);
+  return callApi("/question/create", data, "post", headers);
 };
 
 export const GetQuestionsList = async () => {
@@ -32,7 +32,7 @@ export const GetQuestionsList = async () => {
     "Content-Type": "application/json",
     Authorization: accessToken ? `Bearer ${accessToken}` : null,
   };
-  return callApi("/question_app/list", null, "get", headers);
+  return callApi("/question/list", null, "get", headers);
 };
 export const GetResponsesList = async (id) => {
   const headers = {
