@@ -19,26 +19,27 @@ export const Login = async (data) => {
 
 export const CreateCriticism = async (data) => {
   const headers = {
-    accept: "application/json",
+    Accept: "application/json",
     "Content-Type": "application/json",
-    Authorization: accessToken ? `Bearer ${accessToken}` : null,
+    "Authorization": accessToken ? `Bearer ${accessToken}` : null,
   };
-  return callApi("/question_app/create", data, "post", headers);
+  console.log(headers);
+  return callApi("/question/create", data, "post", headers);
 };
 
 export const GetQuestionsList = async () => {
   const headers = {
     accept: "application/json",
     "Content-Type": "application/json",
-    Authorization: accessToken ? `Bearer ${accessToken}` : null,
+    "Authorization": accessToken ? `Bearer ${accessToken}` : null,
   };
-  return callApi("/question_app/list", null, "get", headers);
+  return callApi("/question/list", null, "get", headers);
 };
 export const GetResponsesList = async (id) => {
   const headers = {
     accept: "application/json",
     "Content-Type": "application/json",
-    Authorization: accessToken ? `Bearer ${accessToken}` : null,
+    "Authorization": accessToken ? `Bearer ${accessToken}` : null,
   };
   return callApi(`/answer/list/${id}`, null, "get", headers);
 };

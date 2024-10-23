@@ -47,30 +47,6 @@ const ResponseList = () => {
     },
   ];
 
-  // const data = [
-  //   {
-  //     key: 1,
-  //     name: "فاطمه عبادی",
-  //     date: "۱۴۰۳/۰۱/۲۴",
-  //     time: "۱۲:۴۵",
-  //     content: <ReactAudioPlayer  src={audioc} autoPlay controls />,
-  //   },
-  //   {
-  //     key: 2,
-  //     name: "حانیه موحدیان",
-  //     date: "۱۴۰۳/۰۱/۲۴",
-  //     time: "۱۲:۴۵",
-  //     content: <ChatBubble message="متن تست" maxWidth="max-w-[300px]" />,
-  //   },
-  //   {
-  //     key: 3,
-  //     name: "فاطمه عبادی",
-  //     date: "۱۴۰۳/۰۱/۲۴",
-  //     time: "۱۲:۴۵",
-  //     content: <ReactAudioPlayer  src={audioc} autoPlay controls />,
-  //   },
-  // ];
-
   return (
     <Flex className=" mt-10 flex  min-h-10 items-center justify-center rounded-xl bg-white px-5 py-10 shadow-lg">
       <Table

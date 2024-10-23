@@ -40,6 +40,7 @@ const AddCriticism = (props) => {
 
   const submitHandler = async () => {
     try {
+      
       const response = await CreateCriticism(data);
       const message = response.data;
       toast.success(message, {
@@ -223,7 +224,7 @@ const AddCriticism = (props) => {
           </Form.Item>
         </Form>
       </Flex>
-      <img className="hidden w-[500px] md:block" src={addForm} />
+      <img className="hidden max-w-[500px] min-w-[50px] md:block"   src={addForm} />
     </Flex>
   );
 };
