@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { Breadcrumb, Layout, Menu, Flex, Typography } from "antd";
 import DashboardHeader from "./Header";
 import logo from "../../assets/images/logo.svg";
@@ -10,7 +10,7 @@ import {
   FormOutlined,
   HomeOutlined,
 } from "@ant-design/icons";
-const DashboardLayout = ({ children }) => {
+const DashboardLayout = () => {
   const { Header, Content, Footer, Sider } = Layout;
   const [collapsed, setCollapsed] = useState(true);
 
@@ -71,7 +71,7 @@ const DashboardLayout = ({ children }) => {
         <Header className=" w-full bg-grey">
           <DashboardHeader />
         </Header>
-        <Content className="mx-[16px] mt-3">{children}</Content>
+        <Content className="mx-[16px] mt-3"><Outlet /></Content>
       </Layout>
     </Layout>
   );

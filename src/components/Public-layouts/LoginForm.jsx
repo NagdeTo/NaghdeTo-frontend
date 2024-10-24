@@ -26,7 +26,7 @@ export default function LoginForm() {
     e.preventDefault();
     try {
       const response = await Login(bodyData);
-      cookies.set("access_token", response.data.access_token);
+      cookies.set("access_token", response.data.access_token, { path: '/',maxAge:import.meta.env.VITE_ACCESS_TIME });
       console.log(response);
       toast.success(
         "با موفقیت وارد شدید تا لحظاتی دیگر به صفحه اصلی هدایت می‌شوید",

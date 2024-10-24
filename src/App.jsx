@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import DashboardLayout from "./components/Dashboard-layouts/Layout";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import AddCriticism from "./pages/AddCriticism/AddCriticism";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import ResponseList from "./pages/Responses/ResponseList";
 import Answer from "./pages/Answer/Answer";
 import Header from "./components/Public-layouts/Header";
@@ -40,7 +40,7 @@ const App = () => {
   useEffect(() => {
     setToken(cookies.get("access_token"));
     setLoading(false);
-  }, [cookies]);
+  }, [cookies,token]);
 
   return (
     <div className="App">
@@ -52,25 +52,29 @@ const App = () => {
         <>
           {showHeaderFooter && <Header />}
 
-          {token ? (
-            <DashboardLayout>
-              <Routes>
+          <Routes >
+            {token ? (
+            
+              <Route  element={<DashboardLayout/>}>
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/add-criticism" element={<AddCriticism />} />
                 <Route path="/response-list/:id" element={<ResponseList />} />
                 <Route path="/answer" element={<Answer />} />
-              </Routes>
-            </DashboardLayout>
-          ) : (
-            <Routes>
+                {["/login","/sign-up" ].map(path => <Route path={path} element={<Navigate to='/dashboard' />} />)}
+              </Route>
+                
+            ) : (
+              <>
+                    {["/dashboard","/add-criticism","/response-list/:id" ,"/answer" ].map(path => <Route path={path} element={<Navigate to='/login' />} />)}
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/sign-up" element={<SignUp />} />
+              </>
+            )}
               <Route path="/" element={<Home />} />
               <Route path="/about-us" element={<AboutUs />} />
               <Route path="/contact-us" element={<ContactUs />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/sign-up" element={<SignUp />} />
               <Route path="/forget-password" element={<ForgetPassword />} />
-            </Routes>
-          )}
+          </Routes>
 
           {showHeaderFooter && <Footer />}
         </>
