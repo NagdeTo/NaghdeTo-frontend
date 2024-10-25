@@ -59,7 +59,7 @@ const Answer = () => {
   };
 
   return (
-    <Flex className=" mt-10 flex  min-h-10 items-start justify-around rounded-xl bg-white px-5 py-10 shadow-lg">
+    <Flex className=" mt-20 mb-20 flex  min-h-20 items-start justify-around rounded-xl bg-white px-5 py-10 shadow-lg">
       <Flex className=" flex h-[500px] min-h-10 w-full flex-col items-start md:w-[50%] ">
         <Typography className="pb-5	text-2xl font-extrabold">
           پاسخ به نقد

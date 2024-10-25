@@ -63,14 +63,14 @@ export default function Header() {
           خانه
         </Link>
         <Link
-          to="#what-is"
+          to="/#what-is"
           className="hover:text-primary-700"
           onClick={() => scrollToElement("what-is")}
         >
           نقدتو چیه؟
         </Link>
         <Link
-          to="#prices"
+          to="/#prices"
           className="hover:text-primary-700"
           onClick={() => scrollToElement("prices")}
         >

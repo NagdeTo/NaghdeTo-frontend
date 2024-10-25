@@ -1,14 +1,26 @@
 import { callApi } from "./httpClient";
 import Cookies from "universal-cookie";
 
-const cookies = new Cookies();
-const accessToken = cookies.get("access_token");
+export const Headers = ()=>{
+  const cookies = new Cookies();
+  const accessToken = cookies.get("access_token");
+
+  const headers = {
+    Accept: "application/json",
+    "Content-Type": "application/json",
+    "Authorization": accessToken ? `Bearer ${accessToken}` : null,
+  };
+  return headers
+}
 
 export const SignUp = async (data) => {
   return callApi("/register", data);
 };
 
 export const Login = async (data) => {
+  const cookies = new Cookies();
+  const accessToken = cookies.get("access_token");
+
   const headers = {
     Accept: "application/json",
     "Content-Type": "application/x-www-form-urlencoded",
@@ -18,28 +30,27 @@ export const Login = async (data) => {
 };
 
 export const CreateCriticism = async (data) => {
-  const headers = {
-    Accept: "application/json",
-    "Content-Type": "application/json",
-    "Authorization": accessToken ? `Bearer ${accessToken}` : null,
-  };
-  console.log(headers);
-  return callApi("/question/create", data, "post", headers);
+ 
+  
+  return callApi("/question/create", data, "post", Headers());
+};
+
+export const UpdateCriticism = async (data,id) => {
+
+  return callApi(`/question/update/${id}`, data, "put", Headers());
+};
+
+export const GetQuestionsDetail = async (id) => {
+  return callApi(`/question/detail/${id}`, null, "get", Headers());
 };
 
 export const GetQuestionsList = async () => {
-  const headers = {
-    accept: "application/json",
-    "Content-Type": "application/json",
-    "Authorization": accessToken ? `Bearer ${accessToken}` : null,
-  };
-  return callApi("/question/list", null, "get", headers);
+  return callApi("/question/list", null, "get", Headers());
 };
+
 export const GetResponsesList = async (id) => {
-  const headers = {
-    accept: "application/json",
-    "Content-Type": "application/json",
-    "Authorization": accessToken ? `Bearer ${accessToken}` : null,
-  };
-  return callApi(`/answer/list/${id}`, null, "get", headers);
+  return callApi(`/answer/list/${id}`, null, "get", Headers());
+};
+export const CreateAnswer = async (data) => {
+  return callApi("/answer/create", data, "post", Headers());
 };

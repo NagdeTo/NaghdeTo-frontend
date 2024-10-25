@@ -6,12 +6,14 @@ import ReactAudioPlayer from "react-audio-player";
 import "./ResponseList.css"
 import { GetResponsesList } from "../../services/APIs";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 const ResponseList = () => {
-
+  
+  const {id} = useParams();
   const [data, setData] = useState([]);
   const getData = async () => {
     try {
-      const response = await GetResponsesList();
+      const response = await GetResponsesList(id);
       setData(response.data);
       console.log(response);
     } catch (err) {

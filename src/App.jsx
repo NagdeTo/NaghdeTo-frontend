@@ -1,13 +1,12 @@
 import Cookies from "universal-cookie";
 import { useEffect, useState } from "react";
 import DashboardLayout from "./components/Dashboard-layouts/Layout";
-import Dashboard from "./pages/Dashboard/Dashboard";
-import AddCriticism from "./pages/AddCriticism/AddCriticism";
+import ListCriticism from "./pages/Criticism/ListCriticism";
+import AddCriticism from "./pages/Criticism/AddCriticism";
 import { Routes, Route, Navigate } from "react-router-dom";
 import ResponseList from "./pages/Responses/ResponseList";
 import Answer from "./pages/Answer/Answer";
-import Header from "./components/Public-layouts/Header";
-import Footer from "./components/Public-layouts/Footer";
+import PublicLayout from "./components/Public-layouts/Layout";
 import { useLocation } from "react-router-dom";
 import AboutUs from "./pages/Public/AboutUs";
 import Home from "./pages/Public/Home";
@@ -16,6 +15,7 @@ import ContactUs from "./pages/Public/ContactUs";
 import SignUp from "./pages/Public/SignUp";
 import ForgetPassword from "./pages/Public/ForgetPassword";
 import { Spin } from "antd";
+import EditCriticism from "./pages/Criticism/EditCriticism";
 
 const App = () => {
   const cookies = new Cookies();
@@ -50,33 +50,34 @@ const App = () => {
         </div>
       ) : (
         <>
-          {showHeaderFooter && <Header />}
-
           <Routes >
             {token ? (
             
               <Route  element={<DashboardLayout/>}>
-                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/list-criticism" element={<ListCriticism />} />
                 <Route path="/add-criticism" element={<AddCriticism />} />
+                <Route path="/edit-criticism/:id" element={<EditCriticism />} />
                 <Route path="/response-list/:id" element={<ResponseList />} />
-                <Route path="/answer" element={<Answer />} />
-                {["/login","/sign-up" ].map(path => <Route path={path} element={<Navigate to='/dashboard' />} />)}
+                {["/login","/sign-up" ].map(path => <Route path={path} element={<Navigate to='/list-criticism' />} />)}
               </Route>
                 
-            ) : (
-              <>
-                    {["/dashboard","/add-criticism","/response-list/:id" ,"/answer" ].map(path => <Route path={path} element={<Navigate to='/login' />} />)}
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/sign-up" element={<SignUp />} />
-              </>
+              ) : (
+                <Route  element={<PublicLayout/>}>
+                {["/list-criticism","/add-criticism","/response-list/:id"  ].map(path => <Route path={path} element={<Navigate to='/login' />} />)}
+                <Route path="/login" element={<Login />} />
+                <Route path="/sign-up" element={<SignUp />} />
+              </Route>
             )}
+            <Route  element={<PublicLayout/>}>
+              <Route path="/answer/:id" element={<Answer />} />
               <Route path="/" element={<Home />} />
               <Route path="/about-us" element={<AboutUs />} />
               <Route path="/contact-us" element={<ContactUs />} />
               <Route path="/forget-password" element={<ForgetPassword />} />
+            </Route>
           </Routes>
 
-          {showHeaderFooter && <Footer />}
+          
         </>
       )}
     </div>

@@ -34,7 +34,7 @@ export default function LoginForm() {
           autoClose: 2000,
           onClose: () => {
             resetFields();
-            navigate("/dashboard");
+            navigate("/list-criticism");
           },
         },
       );

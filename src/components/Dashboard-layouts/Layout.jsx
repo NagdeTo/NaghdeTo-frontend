@@ -19,7 +19,7 @@ const DashboardLayout = () => {
       key: 1,
 
       icon: <HomeOutlined className="text-xl" />,
-      label: <Link to="/dashboard" className="text-lg font-medium">خانه</Link>,
+      label: <Link to="/list-criticism" className="text-lg font-medium">خانه</Link>,
     },
     {
       key: 2,
