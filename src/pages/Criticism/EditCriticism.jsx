@@ -150,7 +150,7 @@ const EditCriticism = (props) => {
               onChange={(v) => setData({ ...data, number_of_respondents: v })}
             />
           </Form.Item>
-          <Form.Item
+          {/* <Form.Item
             label="نحوه پاسخ‌دهی"
             valuePropName="checked"
             wrapperCol={{
@@ -168,7 +168,7 @@ const EditCriticism = (props) => {
               <Radio value="text">متنی</Radio>
             </Radio.Group>
       
-          </Form.Item>
+          </Form.Item> */}
           <Form.Item
             wrapperCol={{
               offset: 0,

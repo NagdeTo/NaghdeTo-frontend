@@ -13,6 +13,14 @@ export const Headers = ()=>{
   return headers
 }
 
+export const multiPartheader=()=>{
+  const cookies = new Cookies();
+  const accessToken = cookies.get("access_token");
+
+  return {'headers':{
+              'Content-Type':'multipart/form-data',
+              'Authorization': accessToken ? `Bearer ${accessToken}` : null,
+            }}}
 export const SignUp = async (data) => {
   return callApi("/register", data);
 };
@@ -52,5 +60,10 @@ export const GetResponsesList = async (id) => {
   return callApi(`/answer/list/${id}`, null, "get", Headers());
 };
 export const CreateAnswer = async (data) => {
-  return callApi("/answer/create", data, "post", Headers());
+  
+  return callApi(`/answer/create`, data, "post", Headers());
+};
+export const VoiceConvert = async (data) => {
+  
+  return callApi(`/answer/voice_converter`, data, "post", multiPartheader());
 };

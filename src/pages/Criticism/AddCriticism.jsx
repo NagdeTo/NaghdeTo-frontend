@@ -16,12 +16,13 @@ import { CheckCircleOutlined, CloseCircleOutlined } from "@ant-design/icons";
 import addForm from "../../assets/images/addForm.svg";
 import { CreateCriticism } from "../../services/APIs";
 import { toast } from "react-toastify";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const { TextArea } = Input;
 
 const AddCriticism = (props) => {
-  const [data, setData] = useState({});
+  const navigate = useNavigate();
+  const [data, setData] = useState({'how_to_answer':'text'});
   const [respondentsNumber, setRespondentsNumber] = useState(0);
   const [date, setDate] = useState();
   const [id, setId] = useState(0);
@@ -46,7 +47,8 @@ const AddCriticism = (props) => {
       const message = response.data;
       setId(response.data.question_id)
       handleOk()
-      console.log(response.data.question_id);
+      
+      
     } catch (err) {
       console.error(err);
       toast.error(err.message);
@@ -59,6 +61,7 @@ const AddCriticism = (props) => {
       setModalOpen(true);
       setSuccess(true);
       setConfirmLoading(false);
+      navigate("/list-criticism");
     }, 2000);
   };
 
@@ -147,7 +150,7 @@ const AddCriticism = (props) => {
               onChange={(v) => setData({ ...data, number_of_respondents: v })}
             />
           </Form.Item>
-          <Form.Item
+          {/* <Form.Item
             label="نحوه پاسخ‌دهی"
             valuePropName="checked"
             wrapperCol={{
@@ -165,7 +168,7 @@ const AddCriticism = (props) => {
               <Radio value="text">متنی</Radio>
             </Radio.Group>
       
-          </Form.Item>
+          </Form.Item> */}
           <Form.Item
             wrapperCol={{
               offset: 0,

@@ -4,15 +4,19 @@ import { Flex, Typography } from "antd";
 import StyledButton from "../Public-StyledComponents/Buttons/StyledButton";
 import "../Public-layouts/Styles/Header.css";
 import { useEffect } from "react";
+import Cookies from "universal-cookie";
+import StyledButton2 from "../Public-StyledComponents/Buttons/StyledButton2";
 
 export default function Header() {
+  const cookies = new Cookies();
   const scrollToElement = (id) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
-
+  console.log(cookies.get("access_token"));
+  
   const location = useLocation();
 
   //sticky navbar
@@ -89,12 +93,18 @@ export default function Header() {
           با ما در ارتباط باش
         </Link>
       </Flex>
-
+      {cookies.get("access_token")===undefined?
       <Link to="/login" className="hover:text-white">
         <StyledButton>
           ورود / ثبت‌نام
         </StyledButton>
-      </Link>
+      </Link>:
+      <Link to="/list-criticism" className="hover:text-white">
+      <StyledButton2>
+        داشبورد
+      </StyledButton2>
+    </Link>
+      }
     </Flex>
   );
 }

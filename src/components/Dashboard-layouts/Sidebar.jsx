@@ -14,7 +14,7 @@ const Sidebar = (props) => {
         <AiOutlineHome width={"100%"} size={25} className="mt-0.5" />
         // </Flex>
       ),
-      label: <Typography className="text-lg font-medium">خانه</Typography>,
+      label: <Typography className="text-lg font-medium">لیست نقد</Typography>,
     },
     {
       key: 2,

@@ -5,9 +5,18 @@ import ChatBubble from "../../components/Chat/ChatBubble";
 import { Flex, Typography, Input, Button, Modal } from "antd";
 import AnswerSvg from "../../assets/images/answerSvg.svg";
 import "./Answer.css";
+import { useNavigate, useParams } from "react-router-dom";
+import { CreateAnswer, GetQuestionsDetail, VoiceConvert } from "../../services/APIs";
+import { toast } from "react-toastify";
+import { Lines } from 'react-preloaders';
 
 const { TextArea } = Input;
 const Answer = () => {
+  const navigate = useNavigate();
+  const {id} = useParams()
+  const [loading, setLoading] = useState(false);
+  const [typeAnswer,setTypeAnswer] = useState("")
+  const [question,setQuestion] = useState({})
   const [message, setMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
   const [voiceMessage, setVoiceMessage] = useState();
@@ -15,15 +24,28 @@ const Answer = () => {
   const recorderControls = useAudioRecorder();
   const [modalOpen, setModalOpen] = useState(false);
   const [success, setSuccess] = useState(true);
+  const [voiceFile,setVoiceFile] = useState();
+const getData = async () => {
+    try {
+      const response = await GetQuestionsDetail(id);
+      setQuestion(response.data)
+    } catch (err) {
+      console.log('nothing');
+      
+    }
+  };
+  useEffect(() => {
+    getData()
+    
+  }, []);
+  useEffect(() => {
+    console.log(typeAnswer);
+  }, [typeAnswer]);
 
   useEffect(() => {
     // unknown api
     setSuccess(true);
   });
-  const addUnkowmVoice = () => {
-    setMessageList((prevMessages) => [...prevMessages, voiceMessage]);
-    setModalOpen(false);
-  };
   const changeInputhandler = (e) => {
     setTyping(true);
     setMessage(e.target.value);
@@ -31,6 +53,7 @@ const Answer = () => {
       setTyping(false);
     }
   };
+  
   const sendHandler = () => {
     setMessageList((prevMessages) => [
       ...prevMessages,
@@ -40,21 +63,52 @@ const Answer = () => {
       },
     ]);
     setMessage("");
-
     setTyping(false);
   };
-  const addAudioElement = (blob) => {
-    console.log(blob);
+  const submitHandler = async()=>{
+        try{
+          const data_items={'content':message,'question_id':id,'voice_path':voiceFile}
+          if (typeAnswer === 'voice'){
+            await CreateAnswer(data_items);
+            setModalOpen(false);
+          }else if(typeAnswer === 'text'){
+            const response = await CreateAnswer(data_items);
+          }else{
+            
+          }
+          toast.success('پاسخ شما با موفقیت اضافه شد.');
+          setTimeout(() => {
+            navigate("/");
+          }, 1000);
+          
+        }catch(err){
+          console.error(err);
+          toast.error(err.message);
+        }
+  }
+  const addUnkowmVoice = () => {
+    submitHandler()
+      setMessageList((prevMessages) => [...prevMessages, voiceMessage]);
+      
+    };
+  const addAudioElement = async (blob) => {
     const url = URL.createObjectURL(blob);
     const audio = document.createElement("audio");
-    // audio.src = url;
-    // audio.controls = true;
     if (messageList.length < 2) {
       setVoiceMessage({
         voice: true,
         url: url,
       });
-      setModalOpen(true);
+      const data_file = new FormData()
+      const audioFile = new File([blob], 'voice.mp3', { type: 'audio/mpeg' });
+      data_file.append("file", audioFile);
+      setLoading(true)
+      const data =await  VoiceConvert(data_file)
+      setTimeout(() => {
+        setLoading(false)
+        setVoiceFile(data.data.Message)
+        setModalOpen(true);
+      }, 3000);
     }
   };
 
@@ -62,12 +116,12 @@ const Answer = () => {
     <Flex className=" mt-20 mb-20 flex  min-h-20 items-start justify-around rounded-xl bg-white px-5 py-10 shadow-lg">
       <Flex className=" flex h-[500px] min-h-10 w-full flex-col items-start md:w-[50%] ">
         <Typography className="pb-5	text-2xl font-extrabold">
-          پاسخ به نقد
+          پاسخ به نقد: {question.title}
         </Typography>
-        <Flex className="h-full w-full flex-col items-center justify-end rounded-md bg-grey px-7">
+        <Flex className="h-full w-full flex-col items-center justify-center rounded-md bg-grey px-7">
           <Flex
             id="messageBox"
-            className="h-full w-full flex-col items-start justify-end gap-2 rounded-md bg-grey pb-2"
+            className="h-full w-full flex-col items-start justify-center gap-2 rounded-md bg-grey pb-2"
           >
             {messageList.map((message, index) => {
               return message.voice ? (
@@ -78,8 +132,9 @@ const Answer = () => {
             })}
           </Flex>
           {messageList.length < 2 && (
-            <Flex className="w-full items-center justify-start bg-grey  pb-2">
-              {typing ? (
+            <Flex className="w-full items-center justify-center bg-grey  pb-2">
+              {typeAnswer === 'voice'?
+              typing ? (
                 <IoMdSend
                   onClick={() => sendHandler()}
                   size={24}
@@ -94,26 +149,34 @@ const Answer = () => {
                   }}
                   recorderControls={recorderControls}
                 />
-              )}
+              )
+              : typeAnswer === 'text'?
+                <>
+                  <TextArea
+                    className={`mr-1  w-full h-[300px] `}
+                    variant="filled"
+                    placeholder="نقد خود را بنویسید..."
+                    autoSize={{ minRows: 1, maxRows: 6 }}
+                    value={message}
+                    onChange={(e) => changeInputhandler(e)}
+                    />
+                  <Button onClick={submitHandler} type="primary" className="mt-2 w-full">
+                    ارسال
+                  </Button>
+                </>
+              :
+                <>
+                  <Button onClick={()=>setTypeAnswer('voice')} type="primary" className="mt-2 ml-2 w-36 h-12">صوتی</Button>
+                  <Button onClick={()=>setTypeAnswer('text')} type="primary" className="mt-2 mr-2 w-36 h-12">متنی</Button>
 
-              {!recorderControls.isRecording && (
-                <TextArea
-                  className={`mr-1 mt-1 w-full `}
-                  variant="filled"
-                  placeholder="نقد خود را بنویسید..."
-                  autoSize={{ minRows: 1, maxRows: 6 }}
-                  value={message}
-                  onChange={(e) => changeInputhandler(e)}
-                />
-              )}
+                </>
+              }
             </Flex>
           )}
         </Flex>
-        {messageList.length === 2 && (
-          <Button type="primary" className="mt-2 w-full">
-            ارسال
-          </Button>
-        )}
+        {/* {messageList.length === 2 && ( */}
+          
+        {/* )} */}
       </Flex>
       <img src={AnswerSvg} className="hidden w-[500px] md:block" />
       <Modal
@@ -129,6 +192,7 @@ const Answer = () => {
                   onClick={addUnkowmVoice}
                   className="ml-4"
                   type="primary"
+                  
                 >
                   تایید و ارسال
                 </Button>
@@ -153,10 +217,16 @@ const Answer = () => {
           <Typography className="text-lg	 font-semibold">
             :صدای ناشناس
           </Typography>
-          <audio src={voiceMessage && voiceMessage.url} controls={true} />
+          <audio src={import.meta.env.VITE_MEDIA_URL+voiceFile} controls={true} />
         </Flex>
 
       </Modal>
+      {loading?
+        <Lines  background='#f4f4f43d'/>
+      :
+      <></>
+      
+    }
     </Flex>
   );
 };

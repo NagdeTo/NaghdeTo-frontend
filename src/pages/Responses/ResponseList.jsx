@@ -36,16 +36,26 @@ const ResponseList = () => {
       title: "تاریخ",
       dataIndex: "date",
       key: "date",
+      render: (record,row)=>(row.create_date_time.split(' ')[0])
     },
     {
       title: "زمان",
       dataIndex: "time",
       key: "time",
+      render: (record,row)=>(row.create_date_time.split(' ')[1])
     },
     {
       title: "محتوای نقد",
       dataIndex: "content",
-      key: "content",
+      // key: "content",
+      render: (record, row) => (
+        <>
+        {row.content===''?
+        <audio src={import.meta.env.VITE_MEDIA_URL+row.voice_path} controls={true} />
+        :row.content
+        }
+        </>
+      )
     },
   ];
 

@@ -9,6 +9,7 @@ import {
  
   FormOutlined,
   HomeOutlined,
+  OrderedListOutlined
 } from "@ant-design/icons";
 const DashboardLayout = () => {
   const { Header, Content, Footer, Sider } = Layout;
@@ -18,8 +19,8 @@ const DashboardLayout = () => {
     {
       key: 1,
 
-      icon: <HomeOutlined className="text-xl" />,
-      label: <Link to="/list-criticism" className="text-lg font-medium">خانه</Link>,
+      icon: <OrderedListOutlined className="text-xl" />,
+      label: <Link to="/list-criticism" className="text-lg font-medium">لیست نقد</Link>,
     },
     {
       key: 2,
